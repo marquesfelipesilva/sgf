@@ -18,7 +18,7 @@ $cc = new ControlFornecedor();
 #verfica o o botão 'consultar' foi acionado
 if (isset($_POST["consultar"])) {
     #passa o id e nome para consultar
-    $fornecedor = $cc->consultar($_POST["COD_FORNECEDORES"], $_POST["NO_FORNECEDORES"]);
+    $fornecedor = $cc->consultar($_POST["COD_FORNECEDORES"], $_POST["NO_FORNECEDOR"]);
 } else {
     #mostrar todos os clientes
     $fornecedor = $cc->consultar(null, null);
@@ -59,7 +59,7 @@ if (isset($_POST["consultar"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="NO_FORNECEDOR">Descrição do Produto:</label>
+                                        <label class="control-label" for="NO_FORNECEDOR">Nome:</label>
                                         <div class="controls">
                                             <input class="span6" name="NO_FORNECEDOR" type="text" id="NO_FORNECEDOR" size="30" maxlength="150" />
                                         </div>

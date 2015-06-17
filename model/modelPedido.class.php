@@ -54,7 +54,7 @@ class modelPedido extends modelConexao {
         
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
-        $sql = 'select * from pedido p join produto pd on p.COD_PRODUTO = pd.COD_PRODUTO  where 1 ';
+        $sql = 'select * from pedido p join produto pd on p.COD_PRODUTO = pd.COD_PRODUTO join fornecedores f on p.COD_FORNECEDORES = f.COD_FORNECEDORES ';
 
         #verificar se foi passado algum valor de $id
         if ($this->getCOD_PEDIDO() != null) {

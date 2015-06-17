@@ -79,7 +79,7 @@ if (isset($_POST["alterar"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="NU_CNPJ">CNPJ:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NU_CNPJ" type="number" id="NU_CNPJ" value="<?php echo $item["NU_CNPJ"]; ?>" />
+                                            <input class="span6" name="NU_CNPJ" type="text" id="NU_CNPJ" value="<?php echo $item["NU_CNPJ"]; ?>" />
                                         </div>
                                     </div>
 
@@ -97,12 +97,6 @@ if (isset($_POST["alterar"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="NO_CIDADE">Cidade:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="NO_CIDADE" type="text" id="NO_CIDADE" value="<?php echo $item["NO_CIDADE"]; ?>" />
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
                                         <label class="control-label" for="DS_COMPLMENTO_END">Complemento Endereço:</label>
                                         <div class="controls">
                                             <input class="span6" name="DS_COMPLMENTO_END" type="text" id="DS_COMPLMENTO_END" value="<?php echo $item["DS_COMPLMENTO_END"]; ?>" />
@@ -115,13 +109,7 @@ if (isset($_POST["alterar"])) {
                                         </div>
                                     </div>
 
-                                    <div class="control-group">
-                                        <label class="control-label" for="DS_COMPLMENTO_END">Complemento Endereço:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="DS_COMPLMENTO_END" type="text" id="V" value="<?php echo $item["DS_COMPLMENTO_END"]; ?>" />
-                                        </div>
-                                    </div>
-
+                                    
                                     <div class="control-group">
                                         <label class="control-label" for="NU_TELEFONE1">Telefone Fixo:</label>
                                         <div class="controls">
@@ -149,7 +137,7 @@ if (isset($_POST["alterar"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="DS_OBSERVACAO">Telefone Recado:</label>
+                                        <label class="control-label" for="DS_OBSERVACAO">Observação:</label>
                                         <div class="controls">
                                             <input class="span6" name="DS_OBSERVACAO" type="text" id="DS_OBSERVACAO" value="<?php echo $item["DS_OBSERVACAO"]; ?>" />
                                         </div>
@@ -157,7 +145,7 @@ if (isset($_POST["alterar"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="text" id="DT_CADASTRO" value="<?php echo $item["DT_CADASTRO"]; ?>" />
+                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" value="<?php echo $item["DT_CADASTRO"]; ?>" />
                                         </div>
                                     </div>
 

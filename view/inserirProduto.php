@@ -11,9 +11,10 @@ header('Content-Type: text/html; charset=UTF-8');
 #inclui o arquivo da classe de controle
 include_once '../control/controlProduto.class.php';
 
+
 #cria o objeto de controle
 $cc = new ControlProduto();
-
+$categoria = $cc->comboCategoria();
 
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
@@ -36,7 +37,7 @@ if (isset($_POST["inserir"])) {
         <?php
         #mostrar o menu
         $cc->menu()
-        ?>
+        ?>  
 
                 <div id="container-geral">
             <div class="container" id="content">
@@ -49,9 +50,21 @@ if (isset($_POST["inserir"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="DS_PRODUTO">Descrição do Produto:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DS_PRODUTO" type="text" id="DS_PRODUTO" size="10" maxlength="10" />
+                                            <input class="span6" name="DS_PRODUTO" type="text" id="DS_PRODUTO"  />
                                         </div>
                                     </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="COD_CATEGORIA">Categoria:</label>
+                                        <div class="controls">
+                                            <select name="COD_CATEGORIA">
+                                                <option>Selecione...</option>
+                                                <?php foreach ($categoria as $cat):?>
+                                                    <option value="<?php echo $cat['COD_CATEGORIA'] ?>"><?php echo $cat['DS_CATEGORIA'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                 
                                     <div class="control-group">
                                         <label class="control-label" for="NU_COD_BARRAS">Código de Barras:</label>
                                         <div class="controls">
@@ -76,14 +89,14 @@ if (isset($_POST["inserir"])) {
                                             <input class="span6" name="VALOR_PRODUTO" type="text" id="VALOR_PRODUTO" size="30" maxlength="150" />
                                         </div>
                                     </div>
-
+                                    
                                     <div class="control-group">
                                         <label class="control-label" for="DT_FABRICACAO">Data de Fabricação:</label>
                                         <div class="controls">
                                             <input class="span6" name="DT_FABRICACAO" type="date" id="DT_FABRICACAO" size="30" maxlength="150" />
                                         </div>
                                     </div>
-
+                                    
                                     <div class="control-group">
                                         <label class="control-label" for="DT_VALIDADE">Data de Validade:</label>
                                         <div class="controls">
@@ -93,10 +106,10 @@ if (isset($_POST["inserir"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="text" id="DT_CADASTRO" size="30" maxlength="150" />
+                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
                                         </div>
                                     </div>
-
+                                    
                                     <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" name="inserir" class="btn btn-primary"> Cadastrar</i></button>
@@ -106,7 +119,7 @@ if (isset($_POST["inserir"])) {
                      </form>
             </fieldset>
       </body>
-
+  
 </html>
 
 

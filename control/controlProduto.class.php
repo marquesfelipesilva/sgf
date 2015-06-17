@@ -2,12 +2,17 @@
 
 #inclui a classe Modelo Cliente
 include_once '../model/modelProduto.class.php';
+include_once '../model/modelCategoria.class.php';
 
 #incluir controle geral
 include_once 'controlGeral.php';
 
 class ControlProduto extends ControlGeral {
-    
+
+    function comboCategoria(){
+        $objCategoria = new modelCategoria();
+        return $objCategoria->consultar();
+    }
     #consultar
     function consultar($COD_PRODUTO, $DS_PRODUTO) {
 

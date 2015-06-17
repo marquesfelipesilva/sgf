@@ -70,7 +70,7 @@ if (isset($_POST["inserir"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="QTD_PRODUTO">Quantidade:</label>
                                         <div class="controls">
-                                            <input class="span6" name="QTD_PRODUTO" type="number" id="QTD_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="QTD_PRODUTO" type="number" id="QTD_PRODUTO" " />
                                         </div>
                                     </div>
 

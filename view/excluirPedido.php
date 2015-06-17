@@ -9,7 +9,7 @@ ob_start();
 header('Content-Type: text/html; charset=UTF-8');
 
 #inclui o arquivo da classe de controle
-include_once '../control/controlPedido.class.class.php';
+include_once '../control/controlPedido.class.php';
 
 #cria o objeto de controle
 $cc = new ControlPedido();

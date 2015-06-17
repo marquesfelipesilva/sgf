@@ -116,8 +116,6 @@ class modelVenda extends modelConexao {
     }
 
 
-
-
         #metodo para executar uma consulta, recebe como parametro o id e o nome
     public function consultar($COD_VENDA, $DS_PRODUTO)
     {
@@ -170,7 +168,6 @@ class modelVenda extends modelConexao {
             return false;
         }
     }
-
 
     #metodo para excluir um cliente
     public function excluir($COD_VENDA) {

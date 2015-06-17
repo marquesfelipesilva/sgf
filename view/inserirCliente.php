@@ -50,7 +50,7 @@ if (isset($_POST["inserir"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="NO_CLIENTE">Nome:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NO_CLIENTE" type="text" id="NO_CLIENTE" size="10" maxlength="10" />
+                                            <input class="span6" name="NO_CLIENTE" type="text" id="NO_CLIENTE" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -71,6 +71,16 @@ if (isset($_POST["inserir"])) {
                                             <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
                                         </div>
                                     </div>
+                                    <div class="control-group" id="divTel">
+                                        <label class="control-label" for="DS_EMAIL">Telefone:</label>
+                                        <div class="controls inline">
+                                            <input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL" size="30" maxlength="150" />
+                                            <select> </select>
+                                            <input type="button" value="teste" id="botao" />
+                                                
+                                        </div>
+                                    </div>
+                                    
                                     <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" name="inserir" class="btn btn-primary"> Cadastrar</i></button>
@@ -82,7 +92,21 @@ if (isset($_POST["inserir"])) {
       </body>
   
 </html>
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#botao').click(function (){
+            $('#form1').append('<div class="control-group">'+
+                                       '<div class="controls inline">'+
+                                            '<input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL" size="30" maxlength="150" />'+
+                                            '<select> </select>'+
+                                            '<input type="button" value="teste" id="botao" />'+
+                                        '</div>'+
+                                    '</div>')
+        });
+    });
 
+</script>
+    
 
 
 
