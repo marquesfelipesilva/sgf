@@ -32,76 +32,74 @@ if (isset($_POST["inserir"])) {
     <script type="text/javascript" src="../bootstrap/js/jquery.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <body>
-
         <?php
         #mostrar o menu
         $cc->menu()
         ?>
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <fieldset>
+                        <legend>Inserir Cliente</legend>
+                        <form class="form-horizontal" id="form1" name="form1" method="post" action="inserirCliente.php">
+                            <div class="control-group">
+                                <label class="control-label" for="NO_CLIENTE">Nome:</label>
+                                <div class="controls">
+                                    <input class="span6" name="NO_CLIENTE" type="text" id="NO_CLIENTE" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="DS_ENDERECO">Endereço:</label>
+                                <div class="controls">
+                                    <input class="span6" name="DS_ENDERECO" type="text" id="DS_ENDERECO" size="30" maxlength="150" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="DS_EMAIL">E-mail:</label>
+                                <div class="controls">
+                                    <input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL" size="30" maxlength="150" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
+                                <div class="controls">
+                                    <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
+                                </div>
+                            </div>
 
-        <div id="container-geral">
-            <div class="container" id="content">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div>
-                            <fieldset>
-                                <legend>Inserir Cliente</legend>
-                                <form class="form-horizontal" id="form1" name="form1" method="post" action="inserirCliente.php">
-                                    <div class="control-group">
-                                        <label class="control-label" for="NO_CLIENTE">Nome:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="NO_CLIENTE" type="text" id="NO_CLIENTE" />
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="DS_ENDERECO">Endereço:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="DS_ENDERECO" type="text" id="DS_ENDERECO" size="30" maxlength="150" />
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="DS_EMAIL">E-mail:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL" size="30" maxlength="150" />
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
-                                        </div>
-                                    </div>
+                            <div class="control-group">
+                                <label class="control-label" for="DS_EMAIL">Telefone:</label>
+                                <div class="controls inline">
+                                    <span id="divTel">
+                                        <input class="span6" name="telefone[NU_TELEFONE]" type="text"/>
+                                        <select> </select>
+                                    </span>
+                                    <a id="botao" class="botao btn"> <i class="icon-plus"></i></a>
+                                </div>
+                            </div>
 
-                                    <div class="control-group">
-                                        <label class="control-label" for="DS_EMAIL">Telefone:</label>
-                                        <div class="controls inline">
-                                            <span id="divTel">
-                                                <input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL" size="30" maxlength="150" />
-                                                <select> </select>
-                                            </span>
-                                            <a id="botao" class="botao btn"> <i class="icon-plus"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button type="submit" name="inserir" class="btn btn-primary"> Cadastrar</i></button>
-                                       </div>
-                                   </div>
-                     </form>
-            </fieldset>
-      </body>
-
-</html>
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('.botao').on('click',function (){
-            $('#divTel').append(
-                '<input class="span6" name="DS_EMAIL" type="text" id="DS_EMAIL"/>'+
-                '<select> </select>'
-            );
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" name="inserir" class="btn btn-primary"> Cadastrar</i></button>
+                               </div>
+                           </div>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('.botao').on('click',function (){
+                $('#divTel').append(
+                    '<input class="span6" name="telefone[NU_TELEFONE]" type="text"/>'+
+                    '<select> </select>'
+                );
+            });
         });
-    });
-</script>
+    </script>
+</html>
 
 
 
