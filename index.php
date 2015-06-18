@@ -1,4 +1,5 @@
 <?php
+//inclui cabecalho
 include("includes/header.php");
 
 if(isset($logado)){
