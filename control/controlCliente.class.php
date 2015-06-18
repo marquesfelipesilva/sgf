@@ -1,5 +1,5 @@
 ﻿<?php
-#inclui a classe Modelo Cliente
+#inclui a classe Modelo Cliente teste commit
 include_once '../model/modelCliente.class.php';
 
 #incluir controle geral
