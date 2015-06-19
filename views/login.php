@@ -12,13 +12,13 @@ include("header.php");
             <label for="DS_LOGIN">Usuário: </label><input id="DS_LOGIN" type="text" class="txt bradius" name="DS_LOGIN" value="" />
             <label for="DS_SENHA">Senha: </label><input  id="DS_SENHA" type="password" class="txt bradius" name="DS_SENHA" value="" />
             <input type="submit" class="sb bradius" value="Entrar" />
-            
-                <?php
-            
+
+        <?php
+
             //echo $DS_LOGIN;
             //echo $DS_SENHA;
-                       
-            ?>
+
+        ?>
             </form>
         <!--acomodar-->
         </div>

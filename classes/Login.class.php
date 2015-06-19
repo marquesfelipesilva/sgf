@@ -2,10 +2,7 @@
 	class Login{
 		public function logar($DS_LOGIN, $DS_SENHA){
 			$buscar=mysql_query("SELECT * FROM colaborador WHERE DS_LOGIN='$DS_LOGIN' AND DS_SENHA='$DS_SENHA' LIMIT 1");
-                        
-                        
-                        
-                        
+
 			if(mysql_num_rows($buscar) == 1){
 				$dados=mysql_fetch_array($buscar);
 				if($dados["STATUS"] == 1){
@@ -27,6 +24,6 @@
 				}
 				echo $flash;
 		}
-	
+
 	}
 

@@ -44,7 +44,7 @@ if (isset($_POST["consultar"])) {
         #mostrar o menu
         $cc->menu()
         ?>
-        
+
         <div id="container-geral">
             <div class="container" id="content">
                 <div class="container-fluid">
@@ -90,7 +90,7 @@ if (isset($_POST["consultar"])) {
                                         #lista os dados
                                         foreach ($clientes as $item) {
                                             echo '<tr>';
-                                                
+
                                                 echo '<td>' . $item['COD_CLIENTE'] . '</td>';
                                                 echo '<td>' . $item['NO_CLIENTE'] . '</td>';
                                                 echo '<td>' . $item['DS_ENDERECO'] . '</td>';

@@ -2,6 +2,12 @@
 
 class ControlGeral {
 
+    public function __construct(){
+        if (!isset($_COOKIE['logado'])){
+            header("location:http://".$_SERVER['HTTP_HOST'].'/sgf');
+        }
+    }
+
     #data no formato brasileiro
     function data($data) {
 
