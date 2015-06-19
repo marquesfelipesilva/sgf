@@ -54,7 +54,7 @@ class ControlGeral {
     function menu() {
         echo '<div class="navbar navbar-inverse">';
         echo '<div class="navbar-inner">';
-        echo '<a class="brand" href="#"> SGF - Sistema Gerenciador de Farmácia</a>';
+        echo '<a class="brand" href="../index.php"> SGF - Sistema Gerenciador de Farmácia</a>';
         echo '<ul class="nav">';
         echo '<li class="active"><a href="../view/inicioSGF.php">Início</a></li>';
         echo '<li><a href="../view/consultarCliente.php">Clientes</a></li>';
