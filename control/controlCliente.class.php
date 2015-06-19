@@ -25,10 +25,10 @@ class ControlCliente extends ControlGeral {
             #se for válido invocar o método de iserir
             if ($objCliente->inserir($NO_CLIENTE, $DS_ENDERECO, $DS_EMAIL, $DT_CADASTRO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
-                echo $this->alerta("Inserido dom sucesso!");
+                echo $this->alerta("Inserido dom sucesso!",'success');
             }
         /*}*/ else {
-            echo $this->alerta("Erro ao inserir!");
+            echo $this->alerta("Erro ao inserir!",'error');
         }
     }
 

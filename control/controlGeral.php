@@ -43,10 +43,11 @@ class ControlGeral {
     }
 
     #mostrar menagem de alerta
-    function alerta($msg) {
-        $alerta = '<div class="alert">';
+    function alerta($msg,$tipo) {
+        $alerta = "<div class='alert alert-$tipo'>";
         $alerta.='<button type="button" class="close" data-dismiss="alert">×</button>';
         $alerta.='<strong>Informação: </strong>' . $msg . '</div>';
+        $_SESSION['mensagem'] = $alerta;
         return $alerta;
     }
 
