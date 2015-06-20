@@ -2,7 +2,7 @@
 #inclui arquivo da classe de conexão
 include_once '../model/modelConexao.class.php';
 
-class modelCliente extends modelConexao {
+class modelCategoria extends modelConexao {
 
     #atributos
     private $COD_CATEGORIA;
@@ -35,11 +35,11 @@ class modelCliente extends modelConexao {
 
     
         #metodo para executar uma consulta, recebe como parametro o id e o nome
-    public function consultar($COD_CATEGORIA, $DS_CATEGORIA)
+    public function consultar($COD_CATEGORIA = null, $DS_CATEGORIA = null)
     {
         #setar os valores
-        $this->setCOD_CLIENTE($COD_CATEGORIA);
-        $this->setNO_CLIENTE($DS_CATEGORIA);
+        $this->setCOD_CATEGORIA($COD_CATEGORIA);
+        $this->setDS_CATEGORIA($DS_CATEGORIA);
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
         $sql = 'select * from categoria  where 1 ';
@@ -81,14 +81,14 @@ class modelCliente extends modelConexao {
     }
 
     #metodo para alterar um cliente
-    public function alterar($COD_CATEGORIA, $DS_CATEGORIA, $NO_LABORATORIO) {
+    public function alterar($COD_CATEGORIA = null, $DS_CATEGORIA = null, $NO_LABORATORIO = null) {
 
         #setar os dados
         $this->setCOD_CATEGORIA($COD_CATEGORIA);
         $this->setDS_CATEGORIA($DS_CATEGORIA);
         $this->setNO_LABORATORIO($NO_LABORATORIO);
         #montar a consulta
-        $sql = "UPDATE categoria SET COD_CATEGORIA = '" . $this->COD_CATEGORIA() . "', DS_CATEGORIA = '" . $this->getDS_CATEGORIA() . "', NO_LABORATORIO = '" . $this->getNO_LABORATORIO() .  "' WHERE COD_CATEGORIA =" . $this->getCOD_CLIENTE();
+        $sql = "UPDATE categoria SET DS_CATEGORIA = '" . $this->getDS_CATEGORIA() . "', NO_LABORATORIO = '" . $this->getNO_LABORATORIO() .  "' WHERE COD_CATEGORIA =" . $this->getCOD_CATEGORIA();
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
