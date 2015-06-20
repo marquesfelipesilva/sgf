@@ -1,6 +1,7 @@
 ﻿<?php
 #inclui a classe Modelo Cliente
 include_once '../model/modelVenda.class.php';
+include_once '../model/modelProduto.class.php';
 
 #incluir controle geral
 include_once 'controlGeral.php';
@@ -48,5 +49,12 @@ class ControlVenda extends ControlGeral {
         } else {
             echo $this->alerta("Erro ao excluir");
         }
+    }
+    
+    function comboProduto()
+    {
+        $objProduto = new modelProduto();
+
+        return $objProduto->consultar(null,null);
     }
 }
