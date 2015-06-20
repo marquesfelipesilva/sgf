@@ -50,7 +50,7 @@ if (isset($_POST["excluir"])) {
                         <div>
                             <fieldset>
                                 <legend>Excluir Cliente</legend>
-                                <form id="cliente" name="cliente" method="post" action="excluirCliente.php">
+                                <form id="cliente" name="excluir" method="post" action="excluirCliente.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_CLIENTE">Código:</label>
                                         <div class="controls">
