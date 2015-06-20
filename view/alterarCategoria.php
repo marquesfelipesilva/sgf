@@ -15,7 +15,7 @@ include_once '../control/controlCategoria.class.php';
 $cc = new ControlCategoria();
 
 #invoca o metodo para trazer o cliente
-$categoria = $cc->consultar($_GET["COD_CATEGORIA"], null);
+$categoria = $cc->consultar($_GET["COD_CATEGORIA"] = null);
 
 if (isset($_POST["alterar"])) {
     #passa o id e nome para consultar
@@ -52,7 +52,7 @@ if (isset($_POST["alterar"])) {
                         <div>
                             <fieldset>
                                   <legend>Alterar Categoria</legend>
-                                   <form id="cliente" name="categoria" method="post" action="categoriaCategoria.php">
+                                  <form id="cliente" name="categoria" method="post" action="alterarCategoria.php">
 
                                     <div class="control-group">
                                         <label class="control-label" for="COD_CATEGORIA">Código:</label>
