@@ -117,11 +117,14 @@ class modelVenda extends modelConexao {
 
 
         #metodo para executar uma consulta, recebe como parametro o id e o nome
-    public function consultar($COD_VENDA, $DS_PRODUTO)
+    public function consultar($COD_VENDA = null,$COD_ESTABELECIMENTO = null,$COD_COLABORADOR = null,$DS_PRODUTO = null,$QTD_PRODUTO = null)
     {
         #setar os valores
         $this->setCOD_VENDA($COD_VENDA);
+        $this->setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO);
+        $this->setCOD_COLABORADOR($COD_COLABORADOR);
         $this->setDS_PRODUTO($DS_PRODUTO);
+        $this->setQTD_PRODUTO($QTD_PRODUTO);
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
         $sql = 'select * from vendas  where 1 ';
@@ -145,10 +148,12 @@ class modelVenda extends modelConexao {
     }
 
     #método para inserir um cliente
-    public function inserir($NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) {
+    public function inserir($COD_ESTABELECIMENTO, $COD_COLABORADOR, $NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) {
 
 
         #setar os dados
+        $this->setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO);
+        $this->setCOD_COLABORADOR($COD_COLABORADOR);
         $this->setNU_CPF($NU_CPF);
         $this->setNU_CNPJ($NU_CNPJ);
         $this->setNO_CLIENTE($NO_CLIENTE);
@@ -159,7 +164,7 @@ class modelVenda extends modelConexao {
         $this->setDS_PRODUTO($DS_PRODUTO);
 
         #montar a consulta
-        $sql = "INSERT INTO vendas (NU_CPF, NU_CNPJ, NO_CLIENTE, VALOR_PRODUTO, VALOR_TOTAL, VALOR_TROCO, QTD_PRODUTO, DS_PRODUTO) VALUES ('" . $this->getNU_CPF() . "','" . $this->getNU_CNPJ() . "','" . $this->getNO_CLIENTE() . "','" . $this->getVALOR_PRODUTO() ."','" . $this->getVALOR_TOTAL() ."','" . $this->getVALOR_TROCO() ."','" . $this->getQTD_PRODUTO() ."','" . $this->getDS_PRODUTO() . "')";
+        $sql = "INSERT INTO vendas (COD_ESTABELECIMENTO, COD_COLABORADOR,NU_CPF, NU_CNPJ, NO_CLIENTE, VALOR_PRODUTO, VALOR_TOTAL, VALOR_TROCO, QTD_PRODUTO, DS_PRODUTO) VALUES ('" . $this->getNU_CPF() . "','" . $this->getNU_CNPJ() . "','" . $this->getNO_CLIENTE() . "','" . $this->getVALOR_PRODUTO() ."','" . $this->getVALOR_TOTAL() ."','" . $this->getVALOR_TROCO() ."','" . $this->getQTD_PRODUTO() ."','" . $this->getDS_PRODUTO() . "')";
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
