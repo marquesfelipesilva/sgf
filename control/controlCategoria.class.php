@@ -8,14 +8,14 @@ include_once 'controlGeral.php';
 class ControlCategoria extends ControlGeral {
 
     #consultar
-    function consultar($COD_CATEGORIA, $DS_CATEGORIA) {
+    function consultar($COD_CATEGORIA = null, $DS_CATEGORIA = null) {
 
-        $objCategoria = new modelCategoria();
-        return $listaCategoria = $objCategoria->consultar($COD_CATEGORIA, $DS_CATEGORIA);
+        $objCategoria = new modelCategoria(null,null);
+        return $listaCategoria = $objCategoria->consultar($COD_CATEGORIA = null, $DS_CATEGORIA = null);
     }
 
     #inserir cliente
-    function inserir($DS_CATEGORIA, $NO_LABORATORIO) {
+    function inserir($DS_CATEGORIA = null, $NO_LABORATORIO = null) {
 
         #invocar métódo  e passar parâmetros
         $objCategoria = new modelCategoria();
@@ -25,7 +25,7 @@ class ControlCategoria extends ControlGeral {
             #se for válido invocar o método de iserir
             if ($objCategoria->inserir($DS_CATEGORIA, $NO_LABORATORIO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
-                echo $this->alerta("Inserido dom sucesso!",'success');
+                echo $this->alerta("Inserido com sucesso!",'success');
             }
         /*}*/ else {
             echo $this->alerta("Erro ao inserir!",'error');
