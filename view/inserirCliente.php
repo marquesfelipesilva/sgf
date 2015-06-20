@@ -68,11 +68,16 @@ if (isset($_POST["inserir"])) {
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label" for="DS_EMAIL">Telefone:</label>
+                                <label class="control-label" for="NU_TELEFONE">Telefone:</label>
                                 <div class="controls inline">
                                     <span id="divTel">
                                         <input class="span6" name="telefone[NU_TELEFONE]" type="text"/>
-                                        <select> </select>
+                                        <select>
+                                        <option>Selecionar... </option>>
+                                        <option>Telefone Residencial </option>
+                                        <option>Telefone Comercial </option>
+                                        <option>Telefone Recado </option>
+                                        </select>
                                     </span>
                                     <a id="botao" class="botao btn"> <i class="icon-plus"></i></a>
                                 </div>
