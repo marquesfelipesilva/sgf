@@ -49,9 +49,14 @@ if (isset($_POST["inserir"])) {
                                 <legend>Inserir Venda</legend>
                                 <form class="form-horizontal" id="form1" name="form1" method="post" action="inserirVenda.php">
                                     <div class="control-group">
-                                        <label class="control-label" for="DS_PRODUTO">Descrição do Produto:</label>
+                                        <label class="control-label" for="DS_PRODUTO">Produto:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DS_PRODUTO" type="text" id="DS_PRODUTO" size="10" maxlength="10" />
+                                            <select name="COD_PRODUTO">
+                                                <option>Selecione...</option>
+                                                <?php foreach ($produtos as $prod):?>
+                                                    <option value="<?php echo $prod['COD_PRODUTO'] ?>"><?php echo $prod['DS_PRODUTO'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="control-group">
