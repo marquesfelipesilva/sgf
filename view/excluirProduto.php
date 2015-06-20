@@ -15,7 +15,7 @@ include_once '../control/controlProduto.class.php';
 $cc = new ControlProduto();
 
 #invoca o metodo para trazer o cliente
-$produtos = $cc->consultar($_GET["COD_PRODUTO"], null);
+$produtos = $cc->consultar($_GET["COD_PRODUTO"] = null);
 
 if (isset($_POST["excluir"])) {
     #passa o id e nome para consultar
