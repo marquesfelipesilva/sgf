@@ -118,7 +118,7 @@ class modelPedido extends modelConexao {
         $this->setCOD_PEDIDO($COD_PEDIDO);
         $this->setCOD_PEDIDO($COD_PRODUTO);
         $this->setCOD_PEDIDO($COD_FORNECEDORES);
-
+ 
         #montar a consulta
         $sql = "DELETE FROM pedido WHERE COD_PEDIDO=" . $this->getCOD_PEDIDO(). "AND COD_PRODUTO=". $this->getCOD_PRODUTO(). "AND COD_FORNECEDORES =". $this->getCOD_FORNECEDORES();
 
