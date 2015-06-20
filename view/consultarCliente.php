@@ -51,6 +51,11 @@ if (isset($_POST["consultar"])) {
                     <div class="row-fluid">
                         <div>
                             <fieldset>
+                                <?php if (isset($_SESSION['mensagem'])):
+                                        echo $_SESSION['mensagem'];
+                                        unset($_SESSION['mensagem']);
+                                    endif;
+                                ?>
                                 <legend>Dados da Consulta</legend>
                                 <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarCliente.php">
                                     <div class="control-group">
