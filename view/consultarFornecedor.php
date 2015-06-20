@@ -56,7 +56,7 @@ if (isset($_POST["consultar"])) {
                                     endif;
                                 ?>
                                 <legend>Dados da Consulta</legend>
-                                <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarFornecedor.php">
+                                <form class="form-horizontal" id="fornecedor" name="fornecedor" method="post" action="consultarFornecedor.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_FORNECEDORES">Código:</label>
                                         <div class="controls">
@@ -66,7 +66,7 @@ if (isset($_POST["consultar"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="NO_FORNECEDOR">Nome:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NO_FORNECEDOR" type="text" id="NO_FORNECEDOR" size="30" maxlength="150" />
+                                            <input class="span6" name="NO_FORNECEDOR" type="text" id="NO_FORNECEDOR" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -87,7 +87,7 @@ if (isset($_POST["consultar"])) {
                                     <td width="200"><b>Nome Fantasia</b></td>
                                     <td width="180"><b>Razão Social</b></td>
                                     <td width="180"><b>CNPJ</b></td>
-                                    <td width="180"><b>Cidade</b></td>
+                                    <td width="180"><b>Estado</b></td>
                                     <td width="180"><b>Endereço</b></td>
                                     <td width="180"><b>Complemento</b></td>
                                     <td width="180"><b>Sigla do Estado</b></td>
