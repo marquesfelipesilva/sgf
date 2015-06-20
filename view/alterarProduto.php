@@ -68,25 +68,25 @@ if (isset($_POST["alterar"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="NU_COD_BARRAS">Código de Barras:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NU_COD_BARRAS" type="number" value="<?php echo $item["NU_COD_BARRAS"]; ?>" />
+                                            <input class="span6" name="NU_COD_BARRAS" type="text" value="<?php echo $item["NU_COD_BARRAS"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="NU_QTDE_PRODUTO">Quantidade:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NU_QTDE_PRODUTO" type="date" id="NU_QTDE_PRODUTO" value="<?php echo $item["NU_QTDE_PRODUTO"]; ?>" />
+                                            <input class="span6" name="NU_QTDE_PRODUTO" type="text" id="NU_QTDE_PRODUTO" value="<?php echo $item["NU_QTDE_PRODUTO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="TIPO_PRODUTO">Tipo do Produto:</label>
                                         <div class="controls">
-                                            <input class="span6" name="TIPO_PRODUTO" type="date" id="TIPO_PRODUTO" value="<?php echo $item["TIPO_PRODUTO"]; ?>" />
+                                            <input class="span6" name="TIPO_PRODUTO" type="text" id="TIPO_PRODUTO" value="<?php echo $item["TIPO_PRODUTO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_PRODUTO">Valor:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_PRODUTO" type="date" id="VALOR_PRODUTO" value="<?php echo $item["VALOR_PRODUTO"]; ?>" />
+                                            <input class="span6" name="VALOR_PRODUTO" type="text" id="VALOR_PRODUTO" value="<?php echo $item["VALOR_PRODUTO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
