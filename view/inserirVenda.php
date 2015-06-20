@@ -84,7 +84,7 @@ if (isset($_POST["inserir"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="VALOR_TROCO">Valor do Produto:</label>
+                                        <label class="control-label" for="VALOR_TROCO">Valor do Troco:</label>
                                         <div class="controls">
                                             <input class="span6" name="VALOR_TROCO" type="text" id="VALOR_TROCO" size="30" maxlength="150" />
                                         </div>
