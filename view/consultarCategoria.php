@@ -57,7 +57,7 @@ if (isset($_POST["consultar"])) {
                                     endif;
                                 ?>
                                 <legend>Dados da Consulta</legend>
-                                <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarCliente.php">
+                                <form class="form-horizontal" id="categoria" name="categoria" method="post" action="consultarCategoria.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_CATEGORIA">Código:</label>
                                         <div class="controls">
@@ -65,7 +65,7 @@ if (isset($_POST["consultar"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="DS_CATEGORIA">Nome:</label>
+                                        <label class="control-label" for="DS_CATEGORIA">Descrição da Categoria:</label>
                                         <div class="controls">
                                             <input class="span6" name="DS_CATEGORIA" type="text" id="DS_CATEGORIA" size="30" maxlength="150" />
                                         </div>
@@ -96,7 +96,7 @@ if (isset($_POST["consultar"])) {
 
                                                 echo '<td>' . $item['COD_CATEGORIA'] . '</td>';
                                                 echo '<td>' . $item['DS_CATEGORIA'] . '</td>';
-                                                echo '<td>' . $item['NO_LABOTORIO'] . '</td>';
+                                                echo '<td>' . $item['NO_LABORATORIO'] . '</td>';
                                                 //echo '<td>' . $item[telefone] . '</td>';
                                                 echo '<td>
                                                           <a class="icon-pencil" href="alterarCategoria.php?COD_CATEGORIA=' . $item['COD_CATEGORIA'] . '" />
