@@ -88,7 +88,7 @@ if (isset($_POST["consultar"])) {
                                             echo '<tr>';
                                             echo '<td>' . $item['COD_PEDIDO'] . '</td>';
                                             echo '<td>' . $item['DS_PRODUTO'] . '</td>';
-                                            echo '<td>' . $item['COD_FORNECEDORES'] . '</td>';
+                                            echo '<td>' . $item['NO_FANTASIA'] . '</td>';
                                             echo '<td>' . $item['QTD_PRODUTO'] . '</td>';
                                             //echo '<td>' . $item[telefone] . '</td>';
                                             echo '<td>
