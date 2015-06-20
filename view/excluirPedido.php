@@ -15,7 +15,7 @@ include_once '../control/controlPedido.class.php';
 $cc = new ControlPedido();
 
 #invoca o metodo para trazer o cliente
-$pedido = $cc->consultar($_GET["COD_PEDIDO"], null);
+$pedido = $cc->consultar($_GET["COD_PEDIDO"]=null);
 
 if (isset($_POST["excluir"])) {
 #passa o id e nome para consultar
@@ -50,15 +50,15 @@ $cc->excluir($_POST["COD_PEDIDO"]);
                                 <legend>Excluir Pedido</legend>
                                 <form id="pedido" name="pedido" method="post" action="excluirPedido.php">
                                     <div class="control-group">
-                                        <label class="control-label" for="COD_PEDIDO">Código:</label>
+                                        <label class="control-label" for="COD_PEDIDO">Código Pedido:</label>
                                         <div class="controls">
                                             <input class="span6" name="COD_PEDIDO" readonly="true" id="COD_PEDIDO" value="<?php echo $item["COD_PEDIDO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="COD_PEDIDO">Código:</label>
+                                        <label class="control-label" for="COD_PRODUTO">Código Produto:</label>
                                         <div class="controls">
-                                            <input class="span6" name="COD_PEDIDO" readonly="true" id="COD_PEDIDO" value="<?php echo $item["COD_PEDIDO"]; ?>" />
+                                            <input class="span6" name="COD_PRODUTO" readonly="true" id="COD_PRODUTO" value="<?php echo $item["COD_PRODUTO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">
