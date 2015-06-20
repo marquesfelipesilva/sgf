@@ -20,6 +20,7 @@ class modelProduto extends modelConexao {
     public function getCOD_PRODUTO() {
         return $this->COD_PRODUTO;
     }
+    
 
     public function getDS_PRODUTO() {
         return $this->DS_PRODUTO;
@@ -56,6 +57,7 @@ class modelProduto extends modelConexao {
     public function setCOD_PRODUTO($COD_PRODUTO) {
         $this->COD_PRODUTO = $COD_PRODUTO;
     }
+    
 
     public function setDS_PRODUTO($DS_PRODUTO) {
         $this->DS_PRODUTO = $DS_PRODUTO;
