@@ -15,6 +15,8 @@ include_once '../control/controlVenda.class.php';
 $cc = new ControlVenda();
 
 
+
+
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
 
@@ -47,7 +49,7 @@ if (isset($_POST["inserir"])) {
                         <div>
                             <fieldset>
                                 <legend>Inserir Venda</legend>
-                                <form class="form-horizontal" id="form1" name="form1" method="post" action="inserirVenda.php">
+                                <form class="form-horizontal" id="venda" name="venda" method="post" action="inserirVenda.php">
                                     <div class="control-group">
                                         <label class="control-label" for="DS_PRODUTO">Produto:</label>
                                         <div class="controls">
