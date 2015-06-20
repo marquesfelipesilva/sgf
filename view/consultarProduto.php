@@ -57,7 +57,7 @@ if (isset($_POST["consultar"])) {
                                     endif;
                                 ?>
                                 <legend>Dados da Consulta</legend>
-                                <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarCliente.php">
+                                <form class="form-horizontal" id="produto" name="produto" method="post" action="consultarProduto.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_PRODUTO">Código:</label>
                                         <div class="controls">
