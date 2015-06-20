@@ -15,7 +15,7 @@ include_once '../control/controlCliente.class.php';
 $cc = new ControlCliente();
 
 #invoca o metodo para trazer o cliente
-$clientes = $cc->consultar($_GET["COD_CLIENTE"]);
+$clientes = $cc->consultar($_GET["COD_CLIENTE"] = null);
 
 if (isset($_POST["excluir"])) {
     #passa o id e nome para consultar
