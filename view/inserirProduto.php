@@ -14,7 +14,8 @@ include_once '../control/controlProduto.class.php';
 
 #cria o objeto de controle
 $cc = new ControlProduto();
-$categoria = $cc->comboCategoria();
+
+//$categoria = $cc->comboCategoria();
 
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
