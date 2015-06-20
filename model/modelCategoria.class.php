@@ -1,0 +1,117 @@
+<?php
+#inclui arquivo da classe de conexão
+include_once '../model/modelConexao.class.php';
+
+class modelCliente extends modelConexao {
+
+    #atributos
+    private $COD_CATEGORIA;
+    private $DS_CATEGORIA;
+    private $NO_LABORATORIO;
+    
+    public function getCOD_CATEGORIA() {
+        return $this->COD_CATEGORIA;
+    }
+
+    public function getDS_CATEGORIA() {
+        return $this->DS_CATEGORIA;
+    }
+
+    public function getNO_LABORATORIO() {
+        return $this->NO_LABORATORIO;
+    }
+
+    public function setCOD_CATEGORIA($COD_CATEGORIA) {
+        $this->COD_CATEGORIA = $COD_CATEGORIA;
+    }
+
+    public function setDS_CATEGORIA($DS_CATEGORIA) {
+        $this->DS_CATEGORIA = $DS_CATEGORIA;
+    }
+
+    public function setNO_LABORATORIO($NO_LABORATORIO) {
+        $this->NO_LABORATORIO = $NO_LABORATORIO;
+    }
+
+    
+        #metodo para executar uma consulta, recebe como parametro o id e o nome
+    public function consultar($COD_CATEGORIA, $DS_CATEGORIA)
+    {
+        #setar os valores
+        $this->setCOD_CLIENTE($COD_CATEGORIA);
+        $this->setNO_CLIENTE($DS_CATEGORIA);
+
+        #montar a consultar (whre 1 serve para selecionar todos os registros)
+        $sql = 'select * from categoria  where 1 ';
+
+        #verificar se foi passado algum valor de $id
+        if ($this->getCOD_CATEGORIA() != null) {
+            $sql.= ' and COD_CATEGORIA=' . $this->getCOD_CATEGORIA();
+        }
+
+        #verificar se foi passado algum valor de $nome
+        if ($this->getDS_CATEGORIA() != null) {
+            $sql.= " and DS_CATEGORIA like '%" . $this->getDS_CATEGORIA() . "%'";
+        }
+
+        #executa consulta e controi um array com o resultado da consulta
+        $result = $this->executarQuery($sql);
+        while ($row = mysql_fetch_array($result)) {
+            $return[] = $row;
+        }
+        return $return;
+    }
+
+    #método para inserir um cliente
+    public function inserir($DS_CATEGORIA, $NO_LABORATORIO) {
+
+        #setar os dados
+        $this->setDS_CATEGORIA($DS_CATEGORIA);
+        $this->setNO_LABORATORIO($NO_LABORATORIO);
+        
+        #montar a consulta
+        $sql = "INSERT INTO categoria (DS_CATEGORIA, NO_LABORATORIO) VALUES ('" . $this->getDS_CATEGORIA() . "','" . $this->getNO_LABORATORIO() . "')";
+
+        #executa consulta e retorna o resultado para o controle
+        if ($this->executarQuery($sql) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    #metodo para alterar um cliente
+    public function alterar($COD_CATEGORIA, $DS_CATEGORIA, $NO_LABORATORIO) {
+
+        #setar os dados
+        $this->setCOD_CATEGORIA($COD_CATEGORIA);
+        $this->setDS_CATEGORIA($DS_CATEGORIA);
+        $this->setNO_LABORATORIO($NO_LABORATORIO);
+        #montar a consulta
+        $sql = "UPDATE categoria SET COD_CATEGORIA = '" . $this->COD_CATEGORIA() . "', DS_CATEGORIA = '" . $this->getDS_CATEGORIA() . "', NO_LABORATORIO = '" . $this->getNO_LABORATORIO() .  "' WHERE COD_CATEGORIA =" . $this->getCOD_CLIENTE();
+
+        #executa consulta e retorna o resultado para o controle
+        if ($this->executarQuery($sql) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    #metodo para excluir um cliente
+    public function excluir($COD_CATEGORIA) {
+
+        #setar os dados
+        $this->setCOD_CATEGORIA($COD_CATEGORIA);
+
+        #montar a consulta
+        $sql = "DELETE FROM categoria WHERE COD_CATEGORIA=" . $this->getCOD_CATEGORIA();
+
+        #executa consulta e retorna o resultado para o controle
+        if ($this->executarQuery($sql) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
