@@ -65,16 +65,6 @@ if (isset($_POST["inserir"])) {
             </div>
         </div>
     </body>
-    <script type="text/javascript">
-        $(document).ready(function (){
-            $('.botao').on('click',function (){
-                $('#divTel').append(
-                    '<input class="span6" name="telefone[NU_TELEFONE]" type="text"/>'+
-                    '<select> </select>'
-                );
-            });
-        });
-    </script>
 </html>
 
 
