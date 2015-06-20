@@ -54,7 +54,7 @@ class modelConexao {
     function conecta() {
 
         #configurar banco de dados
-        $this->setHost("192.168.56.115");
+        $this->setHost("localhost");
         $this->setUser("root");
         $this->setSenha("");
         $this->setDbase("bd_sisfarma");
