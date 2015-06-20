@@ -13,6 +13,8 @@ include_once '../control/controlVenda.class.php';
 
 #cria o objeto de controle
 $cc = new ControlVenda();
+$produtos = $cc->comboProduto();
+
 
 
 
@@ -64,38 +66,38 @@ if (isset($_POST["inserir"])) {
                                     <div class="control-group">
                                         <label class="control-label" for="QTD_PRODUTO">Quantidade:</label>
                                         <div class="controls">
-                                            <input class="span6" name="QTD_PRODUTO" type="number" id="QTD_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="QTD_PRODUTO" type="number" id="QTD_PRODUTO" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_PRODUTO">Valor do Produto:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_PRODUTO" type="number" id="VALOR_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="VALOR_PRODUTO" type="number" id="VALOR_PRODUTO" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_TOTAL">Total:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_TOTAL" type="number" id="VALOR_TOTAL" size="30" maxlength="150" />
+                                            <input class="span6" name="VALOR_TOTAL" type="number" id="VALOR_TOTAL"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_RECEBIDO">Valor Recebido:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_RECEBIDO" type="number" id="VALOR_RECEBIDO" size="30" maxlength="150" />
+                                            <input class="span6" name="VALOR_RECEBIDO" type="number" id="VALOR_RECEBIDO" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_TROCO">Valor do Troco:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_TROCO" type="text" id="VALOR_TROCO" size="30" maxlength="150" />
+                                            <input class="span6" name="VALOR_TROCO" type="text" id="VALOR_TROCO" />
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
+                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" />
                                         </div>
                                     </div>
                                     <div class="control-group">
