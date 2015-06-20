@@ -9,15 +9,12 @@ include_once 'controlGeral.php';
 
 class ControlProduto extends ControlGeral {
 
-    function comboCategoria(){
-        $objCategoria = new modelCategoria();
-        return $objCategoria->consultar();
-    }
+    
     #consultar
-    function consultar($COD_PRODUTO, $DS_PRODUTO) {
+    function consultar($COD_PRODUTO = null, $DS_PRODUTO = null) {
 
         $objProduto = new modelProduto();
-        return $listaProduto = $objProduto->consultar($COD_PRODUTO, $DS_PRODUTO);
+        return $listaProduto = $objProduto->consultar($COD_PRODUTO  = null, $DS_PRODUTO  = null);
     }
 
     #inserir cliente
@@ -67,5 +64,7 @@ class ControlProduto extends ControlGeral {
             echo $this->alerta("Erro ao excluir");
         }
     }
+    
+    
 }
 
