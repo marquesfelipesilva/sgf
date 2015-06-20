@@ -8,14 +8,14 @@ include_once 'controlGeral.php';
 class ControlCliente extends ControlGeral {
 
     #consultar
-    function consultar($COD_CLIENTE, $NO_CLIENTE) {
+    function consultar($COD_CLIENTE = null, $NO_CLIENTE = null) {
 
         $objCliente = new modelCliente();
-        return $listaCliente = $objCliente->consultar($COD_CLIENTE, $NO_CLIENTE);
+        return $listaCliente = $objCliente->consultar($COD_CLIENTE = null, $NO_CLIENTE = null);
     }
 
     #inserir cliente
-    function inserir($NO_CLIENTE, $DS_ENDERECO, $DS_EMAIL, $DT_CADASTRO) {
+    function inserir($NO_CLIENTE = null, $DS_ENDERECO = null, $DS_EMAIL = null, $DT_CADASTRO = null) {
 
         #invocar métódo  e passar parâmetros
         $objCliente = new modelCliente();
