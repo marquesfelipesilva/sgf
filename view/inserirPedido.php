@@ -56,7 +56,7 @@ if (isset($_POST["inserir"])) {
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label" for="DS_PRODUTO">Fornecedor:</label>
+                                        <label class="control-label" for="NO_FANTASIA">Fornecedor:</label>
                                         <div class="controls">
                                             <select name="COD_FORNECEDORES">
                                                 <option>Selecione...</option>
