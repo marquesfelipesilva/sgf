@@ -55,7 +55,7 @@ class modelCliente extends modelConexao {
 
 
         #metodo para executar uma consulta, recebe como parametro o id e o nome
-    public function consultar($COD_CLIENTE, $NO_CLIENTE)
+    public function consultar($COD_CLIENTE = null, $NO_CLIENTE = null)
     {
         #setar os valores
         $this->setCOD_CLIENTE($COD_CLIENTE);
