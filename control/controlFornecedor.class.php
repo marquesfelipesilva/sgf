@@ -24,10 +24,10 @@ class ControlFornecedor extends ControlGeral {
             #se for válido invocar o método de iserir
             if ($objFornecedor->inserir($NO_FORNECEDOR,$NO_FANTASIA,$RAZAO_SOCIAL,$NU_CNPJ,$NO_CIDADE,$DS_ENDERECO,$DS_COMPLMENTO_END,$SIGLA_UF,$NU_TELEFONE1,$NU_TELEFONE2,$NU_TELEFONE3,$DS_EMAIL,$DS_OBSERVACAO,$DT_CADASTRO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
-                echo $this->alerta("Inserido dom sucesso!");
+                echo $this->alerta("Inserido dom sucesso!",'success');
             }
          else {
-            echo $this->alerta("Erro ao inserir!");
+            echo $this->alerta("Erro ao inserir!",'error');
         }
     }
 
