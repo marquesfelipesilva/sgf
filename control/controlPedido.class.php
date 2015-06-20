@@ -32,12 +32,12 @@ class ControlPedido extends ControlGeral {
     }
 
     #alterar cliente
-    function alterar($QTD_PRODUTO) {
+    function alterar($COD_PRODUTO,$COD_FORNECEDORES,$QTD_PRODUTO) {
 
         #invocar métódo  e passar parâmetros
         $objPedido = new modelPedido();
 
-        if ($objPedido->alterar($QTD_PRODUTO) == true) {
+        if ($objPedido->alterar($COD_PRODUTO,$COD_FORNECEDORES,$QTD_PRODUTO) == true) {
             #se for alterado com sucesso mostrar a mensagem
             echo $this->alerta("Atualizado sucesso!",'success');
             //header("location: ../view/consultarPedido.php");
@@ -48,13 +48,13 @@ class ControlPedido extends ControlGeral {
     }
 
     #exluir cliente
-    function excluir($COD_PEDIDO, $COD_PRODUTO, $COD_FORNECEDORES) {
+    function excluir($COD_PEDIDO = null, $COD_PRODUTO = null, $COD_FORNECEDORES = null) {
 
         #invocar métódo  e passar parâmetros
         $objPedido = new modelPedido();
 
         #invocar métódo  e passar parâmetros
-        if ($objPedido->excluir($COD_PEDIDO, $COD_PRODUTO, $COD_FORNECEDORES) == true) {
+        if ($objPedido->excluir($COD_PEDIDO = null, $COD_PRODUTO = null, $COD_FORNECEDORES = null) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             echo $this->alerta("Excluído sucesso!",'success');
             header("location: ../view/consultarPedido.php");
