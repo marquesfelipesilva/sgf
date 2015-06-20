@@ -60,6 +60,7 @@ class ControlGeral {
         echo '<li class="active"><a href="../view/inicioSGF.php">Início</a></li>';
         echo '<li><a href="../view/consultarCliente.php">Clientes</a></li>';
         echo '<li><a href="../view/consultarProduto.php">Produtos</a></li>';
+        echo '<li><a href="../view/consultarCategoria.php">Categoria</a></li>';
         echo '<li><a href="../view/consultarFornecedor.php">Fornecedor</a></li>';
         echo '<li><a href="../view/consultarPedido.php">Pedidos</a></li>';
         echo '<li><a href="../view/consultarVenda.php">Vendas</a></li>';
