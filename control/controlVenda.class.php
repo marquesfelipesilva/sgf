@@ -26,14 +26,14 @@ class ControlVenda extends ControlGeral {
             #se for válido invocar o método de iserir
             if ($objVenda->inserir($NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_RECEBIDO, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
-                echo $this->alerta("Inserido dom sucesso!");
+                echo $this->alerta("Inserido dom sucesso!",'success');
             }
         /*}*/ else {
-            echo $this->alerta("Erro ao inserir!");
+            echo $this->alerta("Erro ao inserir!",'error');
         }
     }
 
-    
+
 
     #exluir cliente
     function excluir($COD_VENDA) {
@@ -45,12 +45,12 @@ class ControlVenda extends ControlGeral {
         if ($objVenda->excluir($COD_VENDA) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             header("location: ../view/consultarVenda.php");
-            echo $this->alerta("Excluído sucesso!");
+            echo $this->alerta("Excluído sucesso!",'success');
         } else {
-            echo $this->alerta("Erro ao excluir");
+            echo $this->alerta("Erro ao excluir",'error');
         }
     }
-    
+
     function comboProduto()
     {
         $objProduto = new modelProduto();

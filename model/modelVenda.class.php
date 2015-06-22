@@ -141,6 +141,7 @@ class modelVenda extends modelConexao {
 
         #executa consulta e controi um array com o resultado da consulta
         $result = $this->executarQuery($sql);
+        $return = array();
         while ($row = mysql_fetch_array($result)) {
             $return[] = $row;
         }
@@ -149,7 +150,6 @@ class modelVenda extends modelConexao {
 
     #método para inserir um cliente
     public function inserir($COD_ESTABELECIMENTO, $COD_COLABORADOR, $NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) {
-
 
         #setar os dados
         $this->setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO);

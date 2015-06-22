@@ -9,7 +9,7 @@ include_once 'controlGeral.php';
 
 class ControlProduto extends ControlGeral {
 
-    
+
     #consultar
     function consultar($COD_PRODUTO = null, $DS_PRODUTO = null) {
 
@@ -26,10 +26,10 @@ class ControlProduto extends ControlGeral {
             #se for válido invocar o método de iserir
             if ($objProduto->inserir($DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
-                echo $this->alerta("Inserido dom sucesso!");
+                echo $this->alerta("Inserido dom sucesso!",'success');
             }
          else {
-            echo $this->alerta("Erro ao inserir!");
+            echo $this->alerta("Erro ao inserir!",'error');
         }
     }
 
@@ -38,13 +38,13 @@ class ControlProduto extends ControlGeral {
 
         #invocar métódo  e passar parâmetros
         $objProduto = new modelProduto();
-        
+
         if ($objProduto->alterar($COD_PRODUTO,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
             #se for alterado com sucesso mostrar a mensagem
-            echo $this->alerta("Atualizado sucesso!");
+            echo $this->alerta("Atualizado sucesso!",'success');
             //header("location: ../view/consultarProduto.php");
         } else {
-            echo $this->alerta("Erro ao atualizar");
+            echo $this->alerta("Erro ao atualizar",'error');
         }
         header("location: ../view/consultarProduto.php");
     }
@@ -58,13 +58,13 @@ class ControlProduto extends ControlGeral {
         #invocar métódo  e passar parâmetros
         if ($objProduto->excluir($COD_PRODUTO) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
-            echo $this->alerta("Excluído sucesso!");
+            echo $this->alerta("Excluído sucesso!",'success');
             header("location: ../view/consultarProduto.php");
         } else {
-            echo $this->alerta("Erro ao excluir");
+            echo $this->alerta("Erro ao excluir",'error');
         }
     }
-    
-    
+
+
 }
 

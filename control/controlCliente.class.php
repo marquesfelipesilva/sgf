@@ -40,10 +40,10 @@ class ControlCliente extends ControlGeral {
 
         if ($objCliente->alterar($COD_CLIENTE, $NO_CLIENTE, $DS_ENDERECO, $DS_EMAIL, $DT_CADASTRO) == true) {
             #se for alterado com sucesso mostrar a mensagem
-            echo $this->alerta("Atualizado sucesso!");
+            echo $this->alerta("Atualizado sucesso!",'success');
             header("location: ../view/consultarCliente.php");
         } else {
-            echo $this->alerta("Erro ao atualizar");
+            echo $this->alerta("Erro ao atualizar",'error');
         }
         header("location: ../view/consultarCliente.php");
     }
@@ -58,9 +58,9 @@ class ControlCliente extends ControlGeral {
         if ($objCliente->excluir($COD_CLIENTE) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             header("location: ../view/consultarCliente.php");
-            echo $this->alerta("Excluído sucesso!");
+            echo $this->alerta("Excluído sucesso!",'success');
         } else {
-            echo $this->alerta("Erro ao excluir");
+            echo $this->alerta("Erro ao excluir",'error');
         }
     }
 }

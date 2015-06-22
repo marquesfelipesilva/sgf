@@ -39,10 +39,10 @@ class ControlFornecedor extends ControlGeral {
 
         if ($objFornecedor->alterar($COD_FORNECEDORES,$NO_FORNECEDOR,$NO_FANTASIA,$RAZAO_SOCIAL,$NU_CNPJ,$NO_CIDADE,$DS_ENDERECO,$DS_COMPLMENTO_END,$SIGLA_UF,$NU_TELEFONE1,$NU_TELEFONE2,$NU_TELEFONE3,$DS_EMAIL,$DS_OBSERVACAO,$DT_CADASTRO) == true) {
             #se for alterado com sucesso mostrar a mensagem
-            echo $this->alerta("Atualizado sucesso!");
+            echo $this->alerta("Atualizado sucesso!",'success');
             header("location: ../view/consultarFornecedor.php");
         } else {
-            echo $this->alerta("Erro ao atualizar");
+            echo $this->alerta("Erro ao atualizar",'error');
         }
         header("location: ../view/consultarFornecedor.php");
     }
@@ -56,10 +56,10 @@ class ControlFornecedor extends ControlGeral {
         #invocar métódo  e passar parâmetros
         if ($objFornecedor->excluir($COD_FORNECEDORES) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
-            echo $this->alerta("Excluído sucesso!");
+            echo $this->alerta("Excluído sucesso!",'success');
             header("location: ../view/consultarFornecedor.php");
         } else {
-            echo $this->alerta("Erro ao excluir");
+            echo $this->alerta("Erro ao excluir",'error');
         }
     }
 }

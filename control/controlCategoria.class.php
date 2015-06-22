@@ -40,10 +40,10 @@ class ControlCategoria extends ControlGeral {
 
         if ($objCategoria->alterar($COD_CATEGORIA, $DS_CATEGORIA, $NO_LABORATORIO) == true) {
             #se for alterado com sucesso mostrar a mensagem
-            echo $this->alerta("Atualizado sucesso!");
+            echo $this->alerta("Atualizado sucesso!",'success');
             header("location: ../view/consultarCategoria.php");
         } else {
-            echo $this->alerta("Erro ao atualizar");
+            echo $this->alerta("Erro ao atualizar",'error');
         }
         header("location: ../view/consultarCategoria.php");
     }
@@ -58,9 +58,9 @@ class ControlCategoria extends ControlGeral {
         if ($objCategoria->excluir($COD_CATEGORIA) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             header("location: ../view/consultarCategoria.php");
-            echo $this->alerta("Excluído sucesso!");
+            echo $this->alerta("Excluído sucesso!",'success');
         } else {
-            echo $this->alerta("Erro ao excluir");
+            echo $this->alerta("Erro ao excluir",'error');
         }
     }
 }
