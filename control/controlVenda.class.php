@@ -16,7 +16,7 @@ class ControlVenda extends ControlGeral {
     }
 
     #inserir cliente
-    function inserir($NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_RECEBIDO, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) {
+    function inserir($params) {
 
         #invocar métódo  e passar parâmetros
         $objVenda = new modelVenda();
@@ -24,7 +24,7 @@ class ControlVenda extends ControlGeral {
         #verificar se o cpf é válido
         //if ($this->validaCPF($cpf)) {
             #se for válido invocar o método de iserir
-            if ($objVenda->inserir($NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_RECEBIDO, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) == true) {
+            if ($objVenda->inserir($params) == true) {
                 #se for inserido com sucesso mostrar a mensagem
                 echo $this->alerta("Inserido dom sucesso!",'success');
             }

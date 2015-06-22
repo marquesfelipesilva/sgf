@@ -7,17 +7,13 @@ class modelVenda extends modelConexao {
 
     #atributos
     private $COD_VENDA;
-    private $COD_ESTABELECIMENTO;
     private $COD_COLABORADOR;
-    private $NU_CPF;
-    private $NU_CNPJ;
     private $DT_CADASTRO;
-    private $NO_CLIENTE;
     private $VALOR_PRODUTO;
     private $VALOR_TOTAL;
     private $VALOR_TROCO;
     private $QTD_PRODUTO;
-    private $DS_PRODUTO;
+    private $COD_PRODUTO;
 
     public function getCOD_VENDA() {
         return $this->COD_VENDA;
@@ -31,20 +27,8 @@ class modelVenda extends modelConexao {
         return $this->COD_COLABORADOR;
     }
 
-    public function getNU_CPF() {
-        return $this->NU_CPF;
-    }
-
-    public function getNU_CNPJ() {
-        return $this->NU_CNPJ;
-    }
-
     public function getDT_CADASTRO() {
         return $this->DT_CADASTRO;
-    }
-
-    public function getNO_CLIENTE() {
-        return $this->NO_CLIENTE;
     }
 
     public function getVALOR_PRODUTO() {
@@ -63,36 +47,20 @@ class modelVenda extends modelConexao {
         return $this->QTD_PRODUTO;
     }
 
-    public function getDS_PRODUTO() {
-        return $this->DS_PRODUTO;
+    public function getCOD_PRODUTO() {
+        return $this->COD_PRODUTO;
     }
 
     public function setCOD_VENDA($COD_VENDA) {
         $this->COD_VENDA = $COD_VENDA;
     }
 
-    public function setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO) {
-        $this->COD_ESTABELECIMENTO = $COD_ESTABELECIMENTO;
-    }
-
     public function setCOD_COLABORADOR($COD_COLABORADOR) {
         $this->COD_COLABORADOR = $COD_COLABORADOR;
     }
 
-    public function setNU_CPF($NU_CPF) {
-        $this->NU_CPF = $NU_CPF;
-    }
-
-    public function setNU_CNPJ($NU_CNPJ) {
-        $this->NU_CNPJ = $NU_CNPJ;
-    }
-
     public function setDT_CADASTRO($DT_CADASTRO) {
         $this->DT_CADASTRO = $DT_CADASTRO;
-    }
-
-    public function setNO_CLIENTE($NO_CLIENTE) {
-        $this->NO_CLIENTE = $NO_CLIENTE;
     }
 
     public function setVALOR_PRODUTO($VALOR_PRODUTO) {
@@ -111,32 +79,27 @@ class modelVenda extends modelConexao {
         $this->QTD_PRODUTO = $QTD_PRODUTO;
     }
 
-    public function setDS_PRODUTO($DS_PRODUTO) {
-        $this->DS_PRODUTO = $DS_PRODUTO;
+    public function setCOD_PRODUTO($DS_PRODUTO) {
+        $this->COD_PRODUTO = $DS_PRODUTO;
     }
 
 
         #metodo para executar uma consulta, recebe como parametro o id e o nome
-    public function consultar($COD_VENDA = null,$COD_ESTABELECIMENTO = null,$COD_COLABORADOR = null,$DS_PRODUTO = null,$QTD_PRODUTO = null)
+    public function consultar($COD_VENDA = null,$COD_COLABORADOR = null,$DS_PRODUTO = null,$QTD_PRODUTO = null)
     {
         #setar os valores
         $this->setCOD_VENDA($COD_VENDA);
-        $this->setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO);
-        $this->setCOD_COLABORADOR($COD_COLABORADOR);
-        $this->setDS_PRODUTO($DS_PRODUTO);
+        //pega codigo do colaborador logado
+        $this->setCOD_COLABORADOR($_SESSION['COD_COLABORADOR']);
+        $this->setCOD_PRODUTO($DS_PRODUTO);
         $this->setQTD_PRODUTO($QTD_PRODUTO);
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
-        $sql = 'select * from vendas  where 1 ';
+        $sql = 'select * from vendas v join produto p on v.COD_PRODUTO = p.COD_PRODUTO  where 1 ';
 
         #verificar se foi passado algum valor de $id
         if ($this->getCOD_VENDA() != null) {
             $sql.= ' and COD_VENDA=' . $this->getCOD_VENDA();
-        }
-
-        #verificar se foi passado algum valor de $nome
-        if ($this->getDS_PRODUTO() != null) {
-            $sql.= " and DS_PRODUTO like '%" . $this->getDS_PRODUTO() . "%'";
         }
 
         #executa consulta e controi um array com o resultado da consulta
@@ -149,22 +112,18 @@ class modelVenda extends modelConexao {
     }
 
     #método para inserir um cliente
-    public function inserir($COD_ESTABELECIMENTO, $COD_COLABORADOR, $NU_CPF, $NU_CNPJ, $NO_CLIENTE, $VALOR_PRODUTO, $VALOR_TOTAL, $VALOR_TROCO, $QTD_PRODUTO, $DS_PRODUTO) {
+    public function inserir($params) {
 
         #setar os dados
-        $this->setCOD_ESTABELECIMENTO($COD_ESTABELECIMENTO);
-        $this->setCOD_COLABORADOR($COD_COLABORADOR);
-        $this->setNU_CPF($NU_CPF);
-        $this->setNU_CNPJ($NU_CNPJ);
-        $this->setNO_CLIENTE($NO_CLIENTE);
-        $this->setVALOR_PRODUTO($VALOR_PRODUTO);
-        $this->setVALOR_TOTAL($VALOR_TOTAL);
-        $this->setVALOR_TROCO($VALOR_TROCO);
-        $this->setQTD_PRODUTO($QTD_PRODUTO);
-        $this->setDS_PRODUTO($DS_PRODUTO);
+        $this->setCOD_COLABORADOR($_SESSION['COD_COLABORADOR']);
+        $this->setVALOR_PRODUTO($params['VALOR_PRODUTO']);
+        $this->setVALOR_TOTAL($params['VALOR_TOTAL']);
+        $this->setVALOR_TROCO($params['VALOR_TROCO']);
+        $this->setQTD_PRODUTO($params['QTD_PRODUTO']);
+        $this->setCOD_PRODUTO($params['COD_PRODUTO']);
 
         #montar a consulta
-        $sql = "INSERT INTO vendas (COD_ESTABELECIMENTO, COD_COLABORADOR,NU_CPF, NU_CNPJ, NO_CLIENTE, VALOR_PRODUTO, VALOR_TOTAL, VALOR_TROCO, QTD_PRODUTO, DS_PRODUTO) VALUES ('" . $this->getNU_CPF() . "','" . $this->getNU_CNPJ() . "','" . $this->getNO_CLIENTE() . "','" . $this->getVALOR_PRODUTO() ."','" . $this->getVALOR_TOTAL() ."','" . $this->getVALOR_TROCO() ."','" . $this->getQTD_PRODUTO() ."','" . $this->getDS_PRODUTO() . "')";
+        $sql = "INSERT INTO vendas (COD_COLABORADOR,VALOR_PRODUTO, VALOR_TOTAL, VALOR_TROCO, QTD_PRODUTO, COD_PRODUTO) VALUES (" . $this->getCOD_COLABORADOR() .",'" . $this->getVALOR_PRODUTO() ."','" . $this->getVALOR_TOTAL() ."','" . $this->getVALOR_TROCO() ."','" . $this->getQTD_PRODUTO() . "',".$this->getCOD_PRODUTO().")";
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {

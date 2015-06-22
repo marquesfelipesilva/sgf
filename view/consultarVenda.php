@@ -81,15 +81,10 @@ if (isset($_POST["consultar"])) {
                                 <legend>Resultado da Consulta</legend>
                                 <table class="table table-bordered" border="1" cellpadding="0" cellspacing="0">
                                     <thead>
-                                    <td width="200"><b>CPF</b></td>
-                                    <td width="200"><b>CNPJ</b></td>
                                     <td width="180"><b>Data do Cadastro</b></td>
-                                    <td width="180"><b>Nome do Cliente</b></td>
                                     <td width="180"><b>Descrição do Produto</b></td>
                                     <td width="180"><b>Quantidade do Produto</b></td>
-                                    <td width="180"><b>Descrição do Produto</b></td>
-                                    <td width="180"><b>Descrição do Produto</b></td>
-                                    <td width="180"><b>Descrição do Produto</b></td>
+                                    <td width="180"><b>Valor do Produto</b></td>
                                     <td>Ação</td>
                                     </thead>
                                     <tbody>
@@ -98,16 +93,13 @@ if (isset($_POST["consultar"])) {
                                         #lista os dados
                                         foreach ($venda as $item) {
                                             echo '<tr>';
-                                                
-                                                echo '<td>' . $item['COD_CLIENTE'] . '</td>';
-                                                echo '<td>' . $item['NO_CLIENTE'] . '</td>';
-                                                echo '<td>' . $item['DS_ENDERECO'] . '</td>';
-                                                echo '<td>' . $item['DS_EMAIL'] . '</td>';
-                                                echo '<td>' . $cc->data($item['DT_CADASTRO']) . '</td>';
-                                                //echo '<td>' . $item[telefone] . '</td>';
+                                            echo '<td>' . $item['DT_CADASTRO'] . '</td>';
+                                            echo '<td>' . $item['DS_PRODUTO'] . '</td>';
+                                            echo '<td>' . $item['QTD_PRODUTO'] . '</td>';
+                                            echo '<td>' . number_format($item['VALOR_PRODUTO'],2,',','.') . '</td>';
                                                 echo '<td>
-                                                          <a class="icon-pencil" href="alterarCliente.php?COD_CLIENTE=' . $item['COD_CLIENTE'] . '" />
-                                                          <a class="icon-trash" href="excluirCliente.php?id=' . $item['COD_CLIENTE'] . '" />
+                                                          <a class="icon-pencil" href="alterarCliente.php?COD_CLIENTE=' . $item['COD_VENDA'] . '" />
+                                                          <a class="icon-trash" href="excluirCliente.php?id=' . $item['COD_VENDA'] . '" />
                                                           </td>';
                                             echo '</tr>';
                                         }

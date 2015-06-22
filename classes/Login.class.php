@@ -9,6 +9,7 @@
 					$_SESSION["DS_LOGIN"]=$dados["DS_LOGIN"];
 					$_SESSION["DS_SENHA"]=$dados["DS_SENHA"];
 					$_SESSION["NIVEL"]=$dados["NIVEL"];
+					$_SESSION["COD_COLABORADOR"]=$dados["COD_COLABORADOR"];
 					setcookie("logado",1);
 					$log=1;
 				}else{

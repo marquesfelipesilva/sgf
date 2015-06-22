@@ -22,7 +22,7 @@ $produtos = $cc->comboProduto();
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
 
-    $cc->inserir($_POST["DS_PRODUTO"], $_POST["QTD_PRODUTO"], $_POST["VALOR_PRODUTO"], $_POST["VALOR_TOTAL"], $_POST["VALOR_RECEBIDO"], $_POST["VALOR_TROCO"]);
+    $cc->inserir($_POST);
     #redirecionar
     header("location: ../view/consultarVenda.php");
 }
