@@ -17,7 +17,7 @@ $cc = new ControlCliente();
 
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
-    $cc->inserir($_POST["NO_CLIENTE"], $_POST["DS_ENDERECO"], $_POST["DS_EMAIL"], $_POST["DT_CADASTRO"]);
+    $cc->inserir($_POST);
     #redirecionar
     header("location: ../view/consultarCliente.php");
 }
@@ -71,12 +71,12 @@ if (isset($_POST["inserir"])) {
                                 <label class="control-label" for="NU_TELEFONE">Telefone:</label>
                                 <div class="controls inline">
                                     <span id="divTel">
-                                        <input class="span6" name="telefone[NU_TELEFONE]" type="text"/>
-                                        <select>
+                                        <input class="span6" name="telefone[nu_telefone][]" type="text"/>
+                                        <select name="telefone[cod_tipo_telefone][]">
                                         <option>Selecionar... </option>>
-                                        <option>Telefone Residencial </option>
-                                        <option>Telefone Comercial </option>
-                                        <option>Telefone Recado </option>
+                                        <option value="1">Telefone Residencial </option>
+                                        <option value="2">Telefone Comercial </option>
+                                        <option value="3">Telefone Recado </option>
                                         </select>
                                     </span>
                                     <a id="botao" class="botao btn"> <i class="icon-plus"></i></a>
@@ -98,8 +98,13 @@ if (isset($_POST["inserir"])) {
         $(document).ready(function (){
             $('.botao').on('click',function (){
                 $('#divTel').append(
-                    '<input class="span6" name="telefone[NU_TELEFONE]" type="text"/>'+
-                    '<select> </select>'
+                    '<input class="span6" name="telefone[nu_telefone][]" type="text"/>'+
+                    '<select name="telefone[cod_tipo_telefone][]">'+
+                        '<option>Selecionar... </option>>'+
+                        '<option value="1">Telefone Residencial </option>'+
+                        '<option value="2">Telefone Comercial </option>'+
+                        '<option value="3">Telefone Recado </option>'+
+                    '</select>'
                 );
             });
         });

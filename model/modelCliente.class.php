@@ -83,19 +83,29 @@ class modelCliente extends modelConexao {
     }
 
     #método para inserir um cliente
-    public function inserir($NO_CLIENTE, $DS_ENDERECO, $DS_EMAIL, $DT_CADASTRO) {
-
+    public function inserir($params,$arrTelefone = null)
+    {
         #setar os dados
-        $this->setNO_CLIENTE($NO_CLIENTE);
-        $this->setDS_ENDERECO($DS_ENDERECO);
-        $this->setDS_EMAIL($DS_EMAIL);
-        $this->setDT_CADASTRO($DT_CADASTRO);
+        $this->setNO_CLIENTE($params['NO_CLIENTE']);
+        $this->setDS_EMAIL($params['DS_EMAIL']);
+        $this->setDT_CADASTRO($params['DT_CADASTRO']);
+        $this->setDS_ENDERECO($params['DS_ENDERECO']);
 
         #montar a consulta
         $sql = "INSERT INTO cliente (NO_CLIENTE, DS_ENDERECO, DS_EMAIL, DT_CADASTRO) VALUES ('" . $this->getNO_CLIENTE() . "','" . $this->getDS_ENDERECO() . "','" . $this->getDS_EMAIL() . "','" . $this->getDT_CADASTRO() . "')";
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
+            $idCliente = mysql_insert_id();
+            if ($arrTelefone) {
+                foreach ($arrTelefone as $telefone) {
+                    $sqlTel = "INSERT INTO telefone (NU_TELEFONE,COD_TIPO_TELEFONE) VALUES ('".$telefone['nu_telefone']."',".$telefone['cod_tipo_telefone'].")";
+                    $this->executarQuery($sqlTel);
+
+                    $sqlTelCli = "INSERT INTO tel_cliente (COD_TELEFONE,COD_CLIENTE) VALUES (".mysql_insert_id().",".$idCliente.")";
+                    $this->executarQuery($sqlTelCli);
+                }
+            }
             return true;
         } else {
             return false;

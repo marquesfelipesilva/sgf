@@ -15,15 +15,24 @@ class ControlCliente extends ControlGeral {
     }
 
     #inserir cliente
-    function inserir($NO_CLIENTE = null, $DS_ENDERECO = null, $DS_EMAIL = null, $DT_CADASTRO = null) {
+    function inserir($params = array()) {
 
         #invocar métódo  e passar parâmetros
         $objCliente = new modelCliente();
 
+        if ($params['telefone']){
+            $arrTelefone = array();
+            foreach ($params['telefone']['nu_telefone'] as $key => $telefone) {
+                $arrTelefone[$key]['nu_telefone'] = $telefone;
+                foreach ($params['telefone']['cod_tipo_telefone'] as $chave => $tipoTelefone){
+                    $arrTelefone[$chave]['cod_tipo_telefone'] = $tipoTelefone;
+                }
+            }
+        }
         #verificar se o cpf é válido
         //if ($this->validaCPF($cpf)) {
             #se for válido invocar o método de iserir
-            if ($objCliente->inserir($NO_CLIENTE, $DS_ENDERECO, $DS_EMAIL, $DT_CADASTRO) == true) {
+            if ($objCliente->inserir($params,$arrTelefone) == true) {
                 #se for inserido com sucesso mostrar a mensagem
                 echo $this->alerta("Inserido dom sucesso!",'success');
             }
