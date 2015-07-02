@@ -78,6 +78,13 @@ if (isset($_POST["alterar"])) {
                                             <input class="span6" name="DS_EMAIL" type="text" value="<?php echo $item["DS_EMAIL"]; ?>" />
                                         </div>
                                     </div>
+                                       <div class="control-group">
+                                        <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
+                                        <div class="controls">
+                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" value="<?php echo $item["DT_CADASTRO"]; ?>" />
+                                        </div>
+                                    </div>
+                                    
                                        
                                        <div class="control-group">
                                 <label class="control-label" for="NU_TELEFONE">Telefone:</label>
@@ -96,12 +103,6 @@ if (isset($_POST["alterar"])) {
                             </div>
 
                                     
-                                    <div class="control-group">
-                                        <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" value="<?php echo $item["DT_CADASTRO"]; ?>" />
-                                        </div>
-                                    </div>
                                     <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" name="alterar" class="btn btn-primary">Alterar</i></button>
