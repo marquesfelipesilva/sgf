@@ -72,7 +72,7 @@ if (isset($_POST["consultar"])) {
                                     <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" name="consultar" class="btn btn-primary"> Pesquisar</i></button>
-                                            <a class="btn" href="inserirVenda.php">Cadastrar</a>
+                                            <a class="btn" href="inserirVenda.php">Efetuar Venda</a>
                                         </div>
                                     </div>
                                 </form>
@@ -85,7 +85,7 @@ if (isset($_POST["consultar"])) {
                                     <td width="180"><b>Descrição do Produto</b></td>
                                     <td width="180"><b>Quantidade do Produto</b></td>
                                     <td width="180"><b>Valor do Produto</b></td>
-                                    <td>Ação</td>
+                                    <!--<td>Ação</td>-->
                                     </thead>
                                     <tbody>
                                         <?php
@@ -97,11 +97,11 @@ if (isset($_POST["consultar"])) {
                                             echo '<td>' . $item['DS_PRODUTO'] . '</td>';
                                             echo '<td>' . $item['QTD_PRODUTO'] . '</td>';
                                             echo '<td>' . number_format($item['VALOR_PRODUTO'],2,',','.') . '</td>';
-                                                echo '<td>
-                                                          <a class="icon-pencil" href="alterarCliente.php?COD_CLIENTE=' . $item['COD_VENDA'] . '" />
-                                                          <a class="icon-trash" href="excluirCliente.php?id=' . $item['COD_VENDA'] . '" />
-                                                          </td>';
-                                            echo '</tr>';
+                                                //echo '<td>
+                                                          //<a class="icon-pencil" href="alterarCliente.php?COD_CLIENTE=' . $item['COD_VENDA'] . '" />
+                                                          //<a class="icon-trash" href="excluirCliente.php?id=' . $item['COD_VENDA'] . '" />
+                                                          //</td>';
+                                            //echo '</tr>';
                                         }
                                         ?>
                                     </tbody>
