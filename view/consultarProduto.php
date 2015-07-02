@@ -56,7 +56,7 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Produtos</legend>
                                 <form class="form-horizontal" id="produto" name="produto" method="post" action="consultarProduto.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_PRODUTO">Código:</label>
@@ -83,6 +83,7 @@ if (isset($_POST["consultar"])) {
                                 <table class="table table-bordered" border="1" cellpadding="0" cellspacing="0">
                                     <thead>
                                     <td width="200"><b>Código do Produto</b></td>
+                                    <td width="200"><b>Código da Categoria</b></td>
                                     <td width="200"><b>Descrição do Produto</b></td>
                                     <td width="200"><b>Código de Barras</b></td>
                                     <td width="180"><b>Quantidade do Produto</b></td>
@@ -100,6 +101,7 @@ if (isset($_POST["consultar"])) {
                                         foreach ($produtos as $item) {
                                                 echo '<tr>';
                                         echo '<td>' . $item['COD_PRODUTO'] . '</td>';
+                                        echo '<td>' . $item['DS_CATEGORIA'] . '</td>';
                                         echo '<td>' . $item['DS_PRODUTO'] . '</td>';
                                         echo '<td>' . $item['NU_COD_BARRAS'] . '</td>';
                                         echo '<td>' . $item['NU_QTDE_PRODUTO'] . '</td>';

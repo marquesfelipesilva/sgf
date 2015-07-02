@@ -4,9 +4,10 @@
 include_once '../model/modelConexao.class.php';
 
 class modelProduto extends modelConexao {
-
     #atributos
+
     private $COD_PRODUTO;
+    private $COD_CATEGORIA;
     private $DS_PRODUTO;
     private $NU_COD_BARRAS;
     private $NU_QTDE_PRODUTO;
@@ -16,11 +17,13 @@ class modelProduto extends modelConexao {
     private $DT_VALIDADE;
     private $DT_CADASTRO;
 
-
     public function getCOD_PRODUTO() {
         return $this->COD_PRODUTO;
     }
-    
+
+    public function getCOD_CATEGORIA() {
+        return $this->COD_CATEGORIA;
+    }
 
     public function getDS_PRODUTO() {
         return $this->DS_PRODUTO;
@@ -57,7 +60,10 @@ class modelProduto extends modelConexao {
     public function setCOD_PRODUTO($COD_PRODUTO) {
         $this->COD_PRODUTO = $COD_PRODUTO;
     }
-    
+
+    public function setCOD_CATEGORIA($COD_CATEGORIA) {
+        $this->COD_CATEGORIA = $COD_CATEGORIA;
+    }
 
     public function setDS_PRODUTO($DS_PRODUTO) {
         $this->DS_PRODUTO = $DS_PRODUTO;
@@ -91,17 +97,17 @@ class modelProduto extends modelConexao {
         $this->DT_CADASTRO = $DT_CADASTRO;
     }
 
+    #metodo para executar uma consulta, recebe como parametro o id e o nome
 
-
-        #metodo para executar uma consulta, recebe como parametro o id e o nome
-    public function consultar($COD_PRODUTO, $DS_PRODUTO) {
+    public function consultar($COD_PRODUTO = null, $COD_CATEGORIA = null, $DS_PRODUTO = null) {
 
         #setar os valores
         $this->setCOD_PRODUTO($COD_PRODUTO);
+        $this->setCOD_CATEGORIA($COD_CATEGORIA);
         $this->setDS_PRODUTO($DS_PRODUTO);
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
-        $sql = 'select * from produto  where 1 ';
+        $sql = 'select p.COD_PRODUTO,c.DS_CATEGORIA,p.DS_PRODUTO,p.NU_COD_BARRAS,p.NU_QTDE_PRODUTO,p.TIPO_PRODUTO,p.VALOR_PRODUTO,p.DT_FABRICACAO,p.DT_VALIDADE,p.DT_CADASTRO from produto p join categoria c on p.COD_CATEGORIA = c.COD_CATEGORIA ';
 
         #verificar se foi passado algum valor de $id
         if ($this->getCOD_PRODUTO() != null) {
@@ -114,6 +120,7 @@ class modelProduto extends modelConexao {
         }
 
         #executa consulta e controi um array com o resultado da consulta
+        $return = null;
         $result = $this->executarQuery($sql);
         while ($row = mysql_fetch_array($result)) {
             $return[] = $row;
@@ -122,9 +129,11 @@ class modelProduto extends modelConexao {
     }
 
     #método para inserir um cliente
-    public function inserir($DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
+
+    public function inserir($COD_CATEGORIA,$DS_PRODUTO, $NU_COD_BARRAS, $NU_QTDE_PRODUTO, $TIPO_PRODUTO, $VALOR_PRODUTO, $DT_FABRICACAO, $DT_VALIDADE, $DT_CADASTRO) {
 
         #setar os dados
+        $this->setCOD_CATEGORIA($COD_CATEGORIA);
         $this->setDS_PRODUTO($DS_PRODUTO);
         $this->setNU_COD_BARRAS($NU_COD_BARRAS);
         $this->setNU_QTDE_PRODUTO($NU_QTDE_PRODUTO);
@@ -135,8 +144,8 @@ class modelProduto extends modelConexao {
         $this->setDT_CADASTRO($DT_CADASTRO);
 
         #montar a consulta
-        $sql = "INSERT INTO produto (DS_PRODUTO,NU_COD_BARRAS,NU_QTDE_PRODUTO,TIPO_PRODUTO,VALOR_PRODUTO,DT_FABRICACAO,DT_VALIDADE,DT_CADASTRO) VALUES ('" . $this->getDS_PRODUTO() . "','" . $this->getNU_COD_BARRAS() . "','" . $this->getNU_QTDE_PRODUTO() . "','" . $this->getTIPO_PRODUTO() . "','" . $this->getVALOR_PRODUTO() .  "','" . $this->getDT_FABRICACAO() . "','" . $this->getDT_VALIDADE() . "','" . $this->getDT_CADASTRO() ."')";
-
+        $sql = "INSERT INTO produto (COD_CATEGORIA,DS_PRODUTO,NU_COD_BARRAS,NU_QTDE_PRODUTO,TIPO_PRODUTO,VALOR_PRODUTO,DT_FABRICACAO,DT_VALIDADE,DT_CADASTRO) VALUES ('" . $this->getCOD_CATEGORIA() ."','". $this->getDS_PRODUTO() . "','" . $this->getNU_COD_BARRAS() . "','" . $this->getNU_QTDE_PRODUTO() . "','" . $this->getTIPO_PRODUTO() . "','" . $this->getVALOR_PRODUTO() . "','" . $this->getDT_FABRICACAO() . "','" . $this->getDT_VALIDADE() . "','" . $this->getDT_CADASTRO() . "')";
+        //print_r($sql);        die();
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
             return true;
@@ -146,7 +155,8 @@ class modelProduto extends modelConexao {
     }
 
     #metodo para alterar um cliente
-    public function alterar($COD_PRODUTO,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
+
+    public function alterar($COD_PRODUTO, $DS_PRODUTO, $NU_COD_BARRAS, $NU_QTDE_PRODUTO, $TIPO_PRODUTO, $VALOR_PRODUTO, $DT_FABRICACAO, $DT_VALIDADE, $DT_CADASTRO) {
 
         #setar os dados
         $this->setCOD_PRODUTO($COD_PRODUTO);
@@ -159,7 +169,7 @@ class modelProduto extends modelConexao {
         $this->setDT_VALIDADE($DT_VALIDADE);
         $this->setDT_CADASTRO($DT_CADASTRO);
         #montar a consulta
-        $sql = "UPDATE produto SET DS_PRODUTO = '" . $this->getDS_PRODUTO() . "', NU_COD_BARRAS = '" . $this->getNU_COD_BARRAS() . "', NU_QTDE_PRODUTO = '" . $this->getNU_QTDE_PRODUTO() ."', TIPO_PRODUTO = '" . $this->getTIPO_PRODUTO() ."', VALOR_PRODUTO = '" . $this->getVALOR_PRODUTO()."', DT_FABRICACAO = '" . $this->getDT_FABRICACAO()."', DT_VALIDADE = '" . $this->getDT_VALIDADE()."', DT_CADASTRO = '" . $this->getDT_CADASTRO().   "' WHERE COD_PRODUTO =" . $this->getCOD_PRODUTO();
+        $sql = "UPDATE produto SET DS_PRODUTO = '" . $this->getDS_PRODUTO() . "', NU_COD_BARRAS = '" . $this->getNU_COD_BARRAS() . "', NU_QTDE_PRODUTO = '" . $this->getNU_QTDE_PRODUTO() . "', TIPO_PRODUTO = '" . $this->getTIPO_PRODUTO() . "', VALOR_PRODUTO = '" . $this->getVALOR_PRODUTO() . "', DT_FABRICACAO = '" . $this->getDT_FABRICACAO() . "', DT_VALIDADE = '" . $this->getDT_VALIDADE() . "', DT_CADASTRO = '" . $this->getDT_CADASTRO() . "' WHERE COD_PRODUTO =" . $this->getCOD_PRODUTO();
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
@@ -170,6 +180,7 @@ class modelProduto extends modelConexao {
     }
 
     #metodo para excluir um cliente
+
     public function excluir($COD_PRODUTO) {
 
         #setar os dados
@@ -186,13 +197,11 @@ class modelProduto extends modelConexao {
         }
     }
 
-    public function getTodosProdutos()
-    {
+    public function getTodosProdutos() {
         $sql = 'select * from produto';
 
         $result = $this->executarQuery($sql);
         return mysql_fetch_array($result);
     }
+
 }
-
-

@@ -15,7 +15,7 @@ include_once '../control/controlFornecedor.class.php';
 $cc = new ControlFornecedor();
 
 #invoca o metodo para trazer o cliente
-$fornecedor = $cc->consultar($_GET["COD_FORNECEDORES"], null);
+$fornecedor = $cc->consultar($_GET["COD_FORNECEDORES"] = null);
 
 if (isset($_POST["excluir"])) {
     #passa o id e nome para consultar

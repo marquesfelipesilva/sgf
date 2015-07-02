@@ -15,7 +15,7 @@ class ControlCategoria extends ControlGeral {
     }
 
     #inserir cliente
-    function inserir($DS_CATEGORIA = null, $NO_LABORATORIO = null) {
+    function inserir($DS_CATEGORIA = null) {
 
         #invocar métódo  e passar parâmetros
         $objCategoria = new modelCategoria();
@@ -23,7 +23,7 @@ class ControlCategoria extends ControlGeral {
         #verificar se o cpf é válido
         //if ($this->validaCPF($cpf)) {
             #se for válido invocar o método de iserir
-            if ($objCategoria->inserir($DS_CATEGORIA, $NO_LABORATORIO) == true) {
+            if ($objCategoria->inserir($DS_CATEGORIA) == true) {
                 #se for inserido com sucesso mostrar a mensagem
                 echo $this->alerta("Inserido com sucesso!",'success');
             }
@@ -33,12 +33,12 @@ class ControlCategoria extends ControlGeral {
     }
 
     #alterar cliente
-    function alterar($COD_CATEGORIA, $DS_CATEGORIA, $NO_LABORATORIO) {
+    function alterar($COD_CATEGORIA, $DS_CATEGORIA) {
 
         #invocar métódo  e passar parâmetros
         $objCategoria = new modelCategoria();
 
-        if ($objCategoria->alterar($COD_CATEGORIA, $DS_CATEGORIA, $NO_LABORATORIO) == true) {
+        if ($objCategoria->alterar($COD_CATEGORIA, $DS_CATEGORIA) == true) {
             #se for alterado com sucesso mostrar a mensagem
             echo $this->alerta("Atualizado sucesso!",'success');
             header("location: ../view/consultarCategoria.php");

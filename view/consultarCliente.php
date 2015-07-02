@@ -56,7 +56,7 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Clientes</legend>
                                 <form class="form-horizontal" id="cliente" name="cliente" method="post" action="consultarCliente.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_CLIENTE">Código:</label>
@@ -86,6 +86,7 @@ if (isset($_POST["consultar"])) {
                                     <td width="200"><b>Nome</b></td>
                                     <td width="180"><b>Endereço</b></td>
                                     <td width="180"><b>Email</b></td>
+                                    <td width="180"><b>Telefone</b></td>
                                     <td width="180"><b>Data do Cadastro</b></td>
                                     <td>Ação</td>
                                     </thead>
@@ -100,8 +101,8 @@ if (isset($_POST["consultar"])) {
                                                 echo '<td>' . $item['NO_CLIENTE'] . '</td>';
                                                 echo '<td>' . $item['DS_ENDERECO'] . '</td>';
                                                 echo '<td>' . $item['DS_EMAIL'] . '</td>';
+                                                echo '<td>' . $item['NU_TELEFONE'] . '</td>';
                                                 echo '<td>' . $cc->data($item['DT_CADASTRO']) . '</td>';
-                                                //echo '<td>' . $item[telefone] . '</td>';
                                                 echo '<td>
                                                           <a class="icon-pencil" href="alterarCliente.php?COD_CLIENTE=' . $item['COD_CLIENTE'] . '" />
                                                           <a class="icon-trash" href="excluirCliente.php?id=' . $item['COD_CLIENTE'] . '" />

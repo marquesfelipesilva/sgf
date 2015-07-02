@@ -121,7 +121,7 @@ class modelPedido extends modelConexao {
  
         #montar a consulta
         $sql = "DELETE FROM pedido WHERE COD_PEDIDO=" . $this->getCOD_PEDIDO(). "AND COD_PRODUTO=". $this->getCOD_PRODUTO(). "AND COD_FORNECEDORES =". $this->getCOD_FORNECEDORES();
-
+        print_r($sql);        die();
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
             return true;

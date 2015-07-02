@@ -15,9 +15,9 @@
 
             
         <?php
-
+        $cc = null;
         #mostrar o menu
-        //$cc->menu()
+        $cc->menu();
         ?>
         
         <div id="container-geral">

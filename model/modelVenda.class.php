@@ -124,7 +124,6 @@ class modelVenda extends modelConexao {
 
         #montar a consulta
         $sql = "INSERT INTO vendas (COD_COLABORADOR,VALOR_PRODUTO, VALOR_TOTAL, VALOR_TROCO, QTD_PRODUTO, COD_PRODUTO) VALUES (" . $this->getCOD_COLABORADOR() .",'" . $this->getVALOR_PRODUTO() ."','" . $this->getVALOR_TOTAL() ."','" . $this->getVALOR_TROCO() ."','" . $this->getQTD_PRODUTO() . "',".$this->getCOD_PRODUTO().")";
-
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
             return true;

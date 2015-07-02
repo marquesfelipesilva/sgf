@@ -55,7 +55,7 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Vendas</legend>
                                 <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarVenda.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_VENDA">Código:</label>
@@ -93,7 +93,7 @@ if (isset($_POST["consultar"])) {
                                         #lista os dados
                                         foreach ($venda as $item) {
                                             echo '<tr>';
-                                            echo '<td>' . $item['DT_CADASTRO'] . '</td>';
+                                            echo '<td>' . $cc->data($item['DT_CADASTRO']) . '</td>';
                                             echo '<td>' . $item['DS_PRODUTO'] . '</td>';
                                             echo '<td>' . $item['QTD_PRODUTO'] . '</td>';
                                             echo '<td>' . number_format($item['VALOR_PRODUTO'],2,',','.') . '</td>';

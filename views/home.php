@@ -41,6 +41,7 @@ include("header.php");
             </table>
             <?php }else{?>
             
+            <!--echo '<meta HTTP-EQUIV="Refresh" CONTENT="2; URL=">';?>-->
 
             <!--<p>Usuário Colaborador</p>-->
             <?php }?>

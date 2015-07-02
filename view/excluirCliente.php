@@ -69,6 +69,19 @@ if (isset($_POST["excluir"])) {
                                             <input class="span6" name="DS_ENDERECO" type="text" value="<?php echo $item["DS_ENDERECO"]; ?>" />
                                         </div>
                                     </div>
+                                    <div class="controls inline">
+                                    <span id="divTel">
+                                        <input class="span6" name="telefone[nu_telefone][]" type="text" id="NU_TELEFONE" value="<?php echo $item["NU_TELEFONE"]; ?>"/>
+                                        <select name="telefone[cod_tipo_telefone][]">
+                                        <option>Selecionar... </option>>
+                                        <option value="1">Telefone Residencial </option>
+                                        <option value="2">Telefone Comercial </option>
+                                        <option value="3">Telefone Recado </option>
+                                        </select>
+                                    </span>
+                                    <a id="botao" class="botao btn"> <i class="icon-plus"></i></a>
+                                </div>
+
                                     <div class="control-group">
                                         <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
                                         <div class="controls">

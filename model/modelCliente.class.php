@@ -62,7 +62,11 @@ class modelCliente extends modelConexao {
         $this->setNO_CLIENTE($NO_CLIENTE);
 
         #montar a consultar (whre 1 serve para selecionar todos os registros)
-        $sql = 'select * from cliente  where 1 ';
+        $sql = "select c.*,coalesce(
+            (select t.NU_TELEFONE from tel_cliente tc 
+            join telefone t on t.COD_TELEFONE = tc.COD_TELEFONE
+            where t.COD_TELEFONE = (select max(COD_TELEFONE) from tel_cliente where COD_CLIENTE = c.COD_CLIENTE)
+            ),'n/a') as NU_TELEFONE from cliente c ";
 
         #verificar se foi passado algum valor de $id
         if ($this->getCOD_CLIENTE() != null) {
@@ -73,9 +77,11 @@ class modelCliente extends modelConexao {
         if ($this->getNO_CLIENTE() != null) {
             $sql.= " and NO_CLIENTE like '%" . $this->getNO_CLIENTE() . "%'";
         }
-
+//print_r($sql);die;
         #executa consulta e controi um array com o resultado da consulta
+        $return = array();
         $result = $this->executarQuery($sql);
+        //print_r($result);die;
         while ($row = mysql_fetch_array($result)) {
             $return[] = $row;
         }
@@ -126,6 +132,16 @@ class modelCliente extends modelConexao {
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
+            $idCliente = mysql_insert_id();
+            if ($arrTelefone) {
+                foreach ($arrTelefone as $telefone) {
+                    $sqlTel = "UPDATE telefone SET NU_TELEFONE = '".$telefone['nu_telefone']."', COD_TIPO_TELEFONE ='" .$telefone['cod_tipo_telefone'].")";
+                    $this->executarQuery($sqlTel);
+
+                    $sqlTelCli = "UPDATE tel_cliente SET COD_TELEFONE = '".mysql_insert_id()."',COD_CLIENTE = '".$idCliente.")";
+                    $this->executarQuery($sqlTelCli);
+                }
+            }
             return true;
         } else {
             return false;
@@ -133,10 +149,10 @@ class modelCliente extends modelConexao {
     }
 
     #metodo para excluir um cliente
-    public function excluir($COD_CLIENTE) {
+    public function excluir($COD_CLIENTE, $COD_TELEFONE, $COD_TIPO_TELEFONE) {
 
         #setar os dados
-        $this->setCOD_CLIENTE($COD_CLIENTE);
+        $this->setCOD_CLIENTE($COD_CLIENTE, $COD_TELEFONE, $COD_TIPO_TELEFONE);
 
         #montar a consulta
         $sql = "DELETE FROM cliente WHERE COD_CLIENTE=" . $this->getCOD_CLIENTE();

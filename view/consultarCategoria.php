@@ -56,18 +56,18 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Categoria</legend>
                                 <form class="form-horizontal" id="categoria" name="categoria" method="post" action="consultarCategoria.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_CATEGORIA">Código:</label>
                                         <div class="controls">
-                                            <input class="span6" name="COD_CATEGORIA" type="text" id="COD_CATEGORIA" size="10" maxlength="10" />
+                                            <input class="span6" name="COD_CATEGORIA" type="text" id="COD_CATEGORIA"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="DS_CATEGORIA">Descrição da Categoria:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DS_CATEGORIA" type="text" id="DS_CATEGORIA" size="30" maxlength="150" />
+                                            <input class="span6" name="DS_CATEGORIA" type="text" id="DS_CATEGORIA" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -79,12 +79,11 @@ if (isset($_POST["consultar"])) {
                                 </form>
                             </fieldset>
                             <fieldset>
-                                <legend>Resultado da Consulta</legend>
+                                <legend>Consulta Categoria</legend>
                                 <table class="table table-bordered" border="1" cellpadding="0" cellspacing="0">
                                     <thead>
                                     <td width="200"><b>Código</b></td>
                                     <td width="200"><b>Descrição</b></td>
-                                    <td width="180"><b>Laboratório</b></td>
                                     <td>Ação</td>
                                     </thead>
                                     <tbody>
@@ -96,8 +95,6 @@ if (isset($_POST["consultar"])) {
 
                                                 echo '<td>' . $item['COD_CATEGORIA'] . '</td>';
                                                 echo '<td>' . $item['DS_CATEGORIA'] . '</td>';
-                                                echo '<td>' . $item['NO_LABORATORIO'] . '</td>';
-                                                //echo '<td>' . $item[telefone] . '</td>';
                                                 echo '<td>
                                                           <a class="icon-pencil" href="alterarCategoria.php?COD_CATEGORIA=' . $item['COD_CATEGORIA'] . '" />
                                                           <a class="icon-trash" href="excluirCategoria.php?id=' . $item['COD_CATEGORIA'] . '" />

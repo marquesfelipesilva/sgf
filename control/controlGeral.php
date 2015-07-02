@@ -64,7 +64,7 @@ class ControlGeral {
         echo '<li><a href="../view/consultarFornecedor.php">Fornecedor</a></li>';
         echo '<li><a href="../view/consultarPedido.php">Pedidos</a></li>';
         echo '<li><a href="../view/consultarVenda.php">Vendas</a></li>';
-        echo '<li><a href="../view/consultarRelatorio.php">Relatórios</a></li>';
+        //echo '<li><a href="../view/consultarRelatorio.php">Relatórios</a></li>';
         echo '<li><a href="../index.php?acao=logout">Sair</a></li>';
         echo '</ul>';
         echo '</div>';

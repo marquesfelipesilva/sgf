@@ -15,7 +15,7 @@ include_once '../control/controlCategoria.class.php';
 $cc = new ControlCategoria();
 
 #invoca o metodo para trazer o cliente
-$categoria = $cc->consultar($_GET["COD_CATEGORIA"]);
+$categoria = $cc->consultar($_GET["COD_CATEGORIA"]= null);
 
 if (isset($_POST["excluir"])) {
     #passa o id e nome para consultar
@@ -61,12 +61,6 @@ if (isset($_POST["excluir"])) {
                                         <label class="control-label" for="DS_CATEGORIA">Descrição:</label>
                                         <div class="controls">
                                             <input class="span6" name="DS_CATEGORIA" type="text" id="DS_CATEGORIA" value="<?php echo $item["DS_CATEGORIA"]; ?>" />
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="NO_LABORATORIO">Laboratório:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="NO_LABORATORIO" type="text" value="<?php echo $item["NO_LABORATORIO"]; ?>" />
                                         </div>
                                     </div>
                                     <div class="control-group">

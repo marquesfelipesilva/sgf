@@ -14,6 +14,7 @@ include_once '../control/controlProduto.class.php';
 
 #cria o objeto de controle
 $cc = new ControlProduto();
+$categoria = $cc->comboCategoria();
 
 //$categoria = $cc->comboCategoria();
 
@@ -54,8 +55,9 @@ if (isset($_POST["inserir"])) {
                                             <input class="span6" name="DS_PRODUTO" type="text" id="DS_PRODUTO"  />
                                         </div>
                                     </div>
+                                    
                                     <div class="control-group">
-                                        <label class="control-label" for="COD_CATEGORIA">Categoria:</label>
+                                        <label class="control-label" for="DS_CATEGORIA">Categoria:</label>
                                         <div class="controls">
                                             <select name="COD_CATEGORIA">
                                                 <option>Selecione...</option>
@@ -65,49 +67,48 @@ if (isset($_POST["inserir"])) {
                                             </select>
                                         </div>
                                     </div>
-                                 
                                     <div class="control-group">
                                         <label class="control-label" for="NU_COD_BARRAS">Código de Barras:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NU_COD_BARRAS" type="number" id="NU_COD_BARRAS" size="30" maxlength="150" />
+                                            <input class="span6" name="NU_COD_BARRAS" type="number" id="NU_COD_BARRAS"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="NU_QTDE_PRODUTO">Quantidade:</label>
                                         <div class="controls">
-                                            <input class="span6" name="NU_QTDE_PRODUTO" type="number" id="NU_QTDE_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="NU_QTDE_PRODUTO" type="number" id="NU_QTDE_PRODUTO"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="TIPO_PRODUTO">Tipo:</label>
                                         <div class="controls">
-                                            <input class="span6" name="TIPO_PRODUTO" type="text" id="TIPO_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="TIPO_PRODUTO" type="text" id="TIPO_PRODUTO"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="VALOR_PRODUTO">Valor:</label>
                                         <div class="controls">
-                                            <input class="span6" name="VALOR_PRODUTO" type="text" id="VALOR_PRODUTO" size="30" maxlength="150" />
+                                            <input class="span6" name="VALOR_PRODUTO" type="text" id="VALOR_PRODUTO"/>
                                         </div>
                                     </div>
                                     
                                     <div class="control-group">
                                         <label class="control-label" for="DT_FABRICACAO">Data de Fabricação:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_FABRICACAO" type="date" id="DT_FABRICACAO" size="30" maxlength="150" />
+                                            <input class="span6" name="DT_FABRICACAO" type="date" id="DT_FABRICACAO"/>
                                         </div>
                                     </div>
                                     
                                     <div class="control-group">
                                         <label class="control-label" for="DT_VALIDADE">Data de Validade:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_VALIDADE" type="date" id="DT_VALIDADE" size="30" maxlength="150" />
+                                            <input class="span6" name="DT_VALIDADE" type="date" id="DT_VALIDADE"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="DT_CADASTRO">Data do Cadastro:</label>
                                         <div class="controls">
-                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO" size="30" maxlength="150" />
+                                            <input class="span6" name="DT_CADASTRO" type="date" id="DT_CADASTRO"/>
                                         </div>
                                     </div>
                                     

@@ -18,13 +18,13 @@ class ControlProduto extends ControlGeral {
     }
 
     #inserir cliente
-    function inserir($DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
+    function inserir($COD_CATEGORIA,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
 
         #invocar métódo  e passar parâmetros
         $objProduto = new modelProduto();
 
             #se for válido invocar o método de iserir
-            if ($objProduto->inserir($DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
+            if ($objProduto->inserir($COD_CATEGORIA,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
                 #se for inserido com sucesso mostrar a mensagem
                 echo $this->alerta("Inserido dom sucesso!",'success');
             }
@@ -34,12 +34,12 @@ class ControlProduto extends ControlGeral {
     }
 
     #alterar cliente
-    function alterar($COD_PRODUTO,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
+    function alterar($COD_PRODUTO,$COD_CATEGORIA,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) {
 
         #invocar métódo  e passar parâmetros
         $objProduto = new modelProduto();
 
-        if ($objProduto->alterar($COD_PRODUTO,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
+        if ($objProduto->alterar($COD_PRODUTO,$COD_CATEGORIA,$DS_PRODUTO,$NU_COD_BARRAS,$NU_QTDE_PRODUTO,$TIPO_PRODUTO,$VALOR_PRODUTO,$DT_FABRICACAO,$DT_VALIDADE,$DT_CADASTRO) == true) {
             #se for alterado com sucesso mostrar a mensagem
             echo $this->alerta("Atualizado sucesso!",'success');
             //header("location: ../view/consultarProduto.php");
@@ -50,19 +50,26 @@ class ControlProduto extends ControlGeral {
     }
 
     #exluir cliente
-    function excluir($COD_PRODUTO) {
+    function excluir($COD_PRODUTO,$COD_CATEGORIA) {
 
         #invocar métódo  e passar parâmetros
         $objProduto = new modelProduto();
 
         #invocar métódo  e passar parâmetros
-        if ($objProduto->excluir($COD_PRODUTO) == true) {
+        if ($objProduto->excluir($COD_PRODUTO,$COD_CATEGORIA) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             echo $this->alerta("Excluído sucesso!",'success');
             header("location: ../view/consultarProduto.php");
         } else {
             echo $this->alerta("Erro ao excluir",'error');
         }
+    }
+    
+    function comboCategoria()
+    {
+        $objCategoria = new modelCategoria();
+
+        return $objCategoria->consultar(null);
     }
 
 

@@ -55,7 +55,7 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Fornecedor</legend>
                                 <form class="form-horizontal" id="fornecedor" name="fornecedor" method="post" action="consultarFornecedor.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_FORNECEDORES">Código:</label>

@@ -58,13 +58,13 @@ class ControlCliente extends ControlGeral {
     }
 
     #exluir cliente
-    function excluir($COD_CLIENTE) {
+    function excluir($COD_CLIENTE = null, $COD_TELEFONE = null, $COD_TIPO_TELEFONE = null) {
 
         #invocar métódo  e passar parâmetros
         $objCliente = new modelCliente();
 
         #invocar métódo  e passar parâmetros
-        if ($objCliente->excluir($COD_CLIENTE) == true) {
+        if ($objCliente->excluir($COD_CLIENTE = null, $COD_TELEFONE = null, $COD_TIPO_TELEFONE = null) == true) {
             #se for excluído com sucesso mostrar a mensagem e redirecionar
             header("location: ../view/consultarCliente.php");
             echo $this->alerta("Excluído sucesso!",'success');

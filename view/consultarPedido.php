@@ -18,7 +18,7 @@ $cc = new ControlPedido();
 #verfica o o botão 'consultar' foi acionado
 if (isset($_POST["consultar"])) {
     #passa o id e nome para consultar
-    $pedido = $cc->consultar($_POST["COD_PEDIDO"], $_POST["DS_PRODUTO"]);
+    $pedido = $cc->consultar($_POST["COD_PEDIDO"], $_POST["DS_PRODUTO"] = null);
 } else {
     #mostrar todos os clientes
     $pedido = $cc->consultar(null, null);
@@ -55,7 +55,7 @@ if (isset($_POST["consultar"])) {
                                         unset($_SESSION['mensagem']);
                                     endif;
                                 ?>
-                                <legend>Dados da Consulta</legend>
+                                <legend>Consulta Pedido</legend>
                                 <form class="form-horizontal" id="form1" name="form1" method="post" action="consultarPedido.php">
                                     <div class="control-group">
                                         <label class="control-label" for="COD_PEDIDO">Código:</label>

@@ -19,7 +19,7 @@ $categoria = $cc->consultar($_GET["COD_CATEGORIA"] = null);
 
 if (isset($_POST["alterar"])) {
     #passa o id e nome para consultar
-    $cc->alterar($_POST["COD_CATEGORIA"], $_POST["DS_CATEGORIA"], $_POST["NO_LABORATORIO"]);
+    $cc->alterar($_POST["COD_CATEGORIA"], $_POST["DS_CATEGORIA"]);
     #mostrar dados do cliente selecionado
     $clientes = $cc->consultar($_POST["COD_CATEGORIA"]);
 }
@@ -28,7 +28,7 @@ if (isset($_POST["alterar"])) {
 
 <html>
     <head>
-        <title>Alterar de Categoria</title>
+        <title>Alterar Categoria</title>
         <!-- Bootstrap -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <meta charset="UTF-8">
@@ -66,13 +66,7 @@ if (isset($_POST["alterar"])) {
                                             <input class="span6" name="DS_CATEGORIA" type="text" id="DS_CATEGORIA" value="<?php echo $item["DS_CATEGORIA"]; ?>" />
                                         </div>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="NO_LABORATORIO">Laboratório:</label>
-                                        <div class="controls">
-                                            <input class="span6" name="NO_LABORATORIO" type="text" value="<?php echo $item["NO_LABORATORIO"]; ?>" />
-                                        </div>
-                                    </div>
-                                       <div class="control-group">
+                                        <div class="control-group">
                                         <div class="controls">
                                             <button type="submit" name="alterar" class="btn btn-primary">Alterar</i></button>
                                             

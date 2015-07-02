@@ -7,7 +7,7 @@ class modelCategoria extends modelConexao {
     #atributos
     private $COD_CATEGORIA;
     private $DS_CATEGORIA;
-    private $NO_LABORATORIO;
+    
     
     public function getCOD_CATEGORIA() {
         return $this->COD_CATEGORIA;
@@ -15,10 +15,6 @@ class modelCategoria extends modelConexao {
 
     public function getDS_CATEGORIA() {
         return $this->DS_CATEGORIA;
-    }
-
-    public function getNO_LABORATORIO() {
-        return $this->NO_LABORATORIO;
     }
 
     public function setCOD_CATEGORIA($COD_CATEGORIA) {
@@ -29,12 +25,7 @@ class modelCategoria extends modelConexao {
         $this->DS_CATEGORIA = $DS_CATEGORIA;
     }
 
-    public function setNO_LABORATORIO($NO_LABORATORIO) {
-        $this->NO_LABORATORIO = $NO_LABORATORIO;
-    }
-
-    
-        #metodo para executar uma consulta, recebe como parametro o id e o nome
+    #metodo para executar uma consulta, recebe como parametro o id e o nome
     public function consultar($COD_CATEGORIA = null, $DS_CATEGORIA = null)
     {
         #setar os valores
@@ -63,15 +54,14 @@ class modelCategoria extends modelConexao {
     }
 
     #método para inserir um cliente
-    public function inserir($DS_CATEGORIA, $NO_LABORATORIO) {
+    public function inserir($DS_CATEGORIA) {
 
         #setar os dados
         $this->setDS_CATEGORIA($DS_CATEGORIA);
-        $this->setNO_LABORATORIO($NO_LABORATORIO);
         
         #montar a consulta
-        $sql = "INSERT INTO categoria (DS_CATEGORIA, NO_LABORATORIO) VALUES ('" . $this->getDS_CATEGORIA() . "','" . $this->getNO_LABORATORIO() . "')";
-
+        $sql = "INSERT INTO categoria (DS_CATEGORIA) VALUES ('" .$this->getDS_CATEGORIA()."')";
+        //print_r($sql);die();
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {
             return true;
@@ -81,14 +71,14 @@ class modelCategoria extends modelConexao {
     }
 
     #metodo para alterar um cliente
-    public function alterar($COD_CATEGORIA = null, $DS_CATEGORIA = null, $NO_LABORATORIO = null) {
+    public function alterar($COD_CATEGORIA = null, $DS_CATEGORIA = null) {
 
         #setar os dados
         $this->setCOD_CATEGORIA($COD_CATEGORIA);
         $this->setDS_CATEGORIA($DS_CATEGORIA);
-        $this->setNO_LABORATORIO($NO_LABORATORIO);
+        
         #montar a consulta
-        $sql = "UPDATE categoria SET DS_CATEGORIA = '" . $this->getDS_CATEGORIA() . "', NO_LABORATORIO = '" . $this->getNO_LABORATORIO() .  "' WHERE COD_CATEGORIA =" . $this->getCOD_CATEGORIA();
+        $sql = "UPDATE categoria SET DS_CATEGORIA = '" . $this->getDS_CATEGORIA() . "' WHERE COD_CATEGORIA =" . $this->getCOD_CATEGORIA();
 
         #executa consulta e retorna o resultado para o controle
         if ($this->executarQuery($sql) == 1) {

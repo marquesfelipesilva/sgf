@@ -17,7 +17,7 @@ $cc = new ControlFornecedor();
 
 if (isset($_POST["inserir"])) {
     #passa os dados para inserir
-    $cc->inserir($_POST["COD_FORNECEDORES"], $_POST["NO_FORNECEDOR"], $_POST["NO_FANTASIA"], $_POST["RAZAO_SOCIAL"], $_POST["NU_CNPJ"], $_POST["NO_CIDADE"], $_POST["DS_ENDERECO"], $_POST["DS_COMPLMENTO_END"], $_POST["SIGLA_UF"], $_POST["NU_TELEFONE1"], $_POST["NU_TELEFONE2"], $_POST["NU_TELEFONE3"], $_POST["DS_EMAIL"], $_POST["DS_OBSERVACAO"], $_POST["DT_CADASTRO"]);
+    $cc->inserir($_POST["NO_FORNECEDOR"], $_POST["NO_FANTASIA"], $_POST["RAZAO_SOCIAL"], $_POST["NU_CNPJ"], $_POST["NO_CIDADE"], $_POST["DS_ENDERECO"], $_POST["DS_COMPLMENTO_END"], $_POST["SIGLA_UF"], $_POST["NU_TELEFONE1"], $_POST["NU_TELEFONE2"], $_POST["NU_TELEFONE3"], $_POST["DS_EMAIL"], $_POST["DS_OBSERVACAO"], $_POST["DT_CADASTRO"]);
     #redirecionar
     header("location: ../view/consultarFornecedor.php");
 }
