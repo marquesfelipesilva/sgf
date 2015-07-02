@@ -57,7 +57,7 @@ class modelConexao {
         $this->setHost("localhost");
         $this->setUser("root");
         $this->setSenha("");
-        $this->setDbase("bd_sisfarma");
+        $this->setDbase("bd_sgf");
 
         #define a conexão com o banco de dados
         $this->link = mysql_connect($this->getHost(), $this->getUser(), $this->getSenha());
